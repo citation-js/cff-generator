@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" prefix="og: http://ogp.me/ns#">
+  <head>
+    <meta charset="utf-8">
+    <title>CFF generator</title>
+    <meta name="description" content="Generate Citation File Format files for your GitHub repository">
+    <meta name="twitter:card" content="summery">
+    <meta name="twitter:site" content="@citation_js">
+    <meta name="twitter:creator" content="@larswillighagen">
+    <meta name="og:url" content="https://citation.js.org/cff-generator">
+    <meta name="og:title" content="Citation File Format generator">
+    <meta name="og:description" content="Generate Citation File Format files for your GitHub repository">
+
+    <style media="screen">
+      body {
+        font-family: sans-serif;
+
+        margin: 0 auto;
+        max-width: 800px;
+      }
+
+      hr {
+        margin: 2em 0;
+      }
+
+      textarea {
+        width: 100%;
+      }
+
+      button, input, select {
+        padding: 0.5em;
+        margin: 0.5em 0;
+      }
+
+      pre {
+        white-space: pre-wrap;
+      }
+
+      input[name="message"] {
+        width: 50%;
+      }
+
+      output[name="input_error"] {
+        color: red;
+      }
+
+      li {
+        margin-bottom: 1em;
+      }
+
+      li details {
+        margin-top: 0.5em;
+      }
+
+      li a {
+        float: right;
+      }
+
+      #banner {
+        position: relative;
+        top: -3em;
+      }
+    </style>
+  </head>
+  <body>
+
+    <h1>Citation.js CFF generator</h1>
+
+    <p>
+      Generate
+      <a href="https://citation-file-format.github.io/">Citation File Format</a>
+      files
+      <a href="https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-citation-files">
+        for your GitHub repository
+      </a>
+      .
+    </p>
+
+    <hr>
+
+    <form id="input">
+      <label for="Input">Add a DOI, an ISBN, a PubMed ID, BibTeX, RIS, a GitHub or npm URL.</label><br>
+      <textarea name="input" rows="10"></textarea><br>
+
+      <label for="input_type">Override input type:</label>
+      <select name="input_type"></select><br>
+
+      <br><output name="input_error"></output><br><br>
+
+      <button>Add</button>
+    </form>
+
+    <hr>
+
+    <ol id="items"></ol>
+
+    <hr>
+
+    <form id="configure">
+      <label for="message">
+        Message
+        (<a href="https://github.com/citation-file-format/citation-file-format/blob/main/README.md#message-required">docs<a>)
+      </label><br>
+      <input type="text" name="message" value="Please cite the following works when using this software."><br><br>
+
+      <label for="main">Select the main reference (should be software or dataset)</label><br>
+      <select name="main"></select><br><br>
+
+      <button>Generate</button>
+    </form>
+
+    <hr>
+
+    <pre id="output">
+    </pre>
+
+    <form id="use">
+      <button>Copy</button>
+    </form>
+
+    <hr>
+
+    <h2>Built with Citation.js</h2>
+    <a href="https://citation.js.org">
+      <img id="banner" src="https://citation.js.org/static/img/banner.png" alt="Citation.js logo">
+    </a>
+
+    <script src="citation.js" charset="utf-8"></script>
+    <script type="text/javascript">
+      (function () {
+        const inputForm = document.getElementById('input')
+        const configureForm = document.getElementById('configure')
+        const useForm = document.getElementById('use')
+        const itemsList = document.getElementById('items')
+        const outputField = document.getElementById('output')
+
+        const c = require('citation-js')
+        let cite = new c.Cite()
+
+        // Add .zenodo.json-from-URL support
+        c.plugins.input.add('@github/zenodo.json', {
+          parseType: {
+            extends: '@github/url'
+          },
+          parseAsync (input) {
+            const [, user, repo] = input.match(/^https?:\/\/github.com\/([^/]+)\/([^/]+)/)
+
+            return c.util
+              .fetchFileAsync('https://raw.githubusercontent.com/' + user + '/' + repo + '/HEAD/.zenodo.json')
+              .catch(() => 'https://api.github.com/repos/' + user + '/' + repo)
+          }
+        })
+
+        // Populate format selection
+        const plugins = {}
+        for (const type of c.plugins.input.listTypeParser()) {
+          let [plugin, subtype] = type.split('/')
+          plugin = plugin.slice(1) // remove leading '@'
+
+          if (!plugins[plugin]) plugins[plugin] = []
+          plugins[plugin].push([subtype, type])
+        }
+
+        for (const plugin of Object.keys(plugins).sort()) {
+          const optgroup = document.createElement('optgroup')
+          optgroup.setAttribute('label', plugin)
+          for (const type of plugins[plugin].sort()) {
+            const option = document.createElement('option')
+            option.setAttribute('value', type[1])
+            option.textContent = type[1]
+            optgroup.appendChild(option)
+          }
+          inputForm.input_type.appendChild(optgroup)
+        }
+
+        // Add interactivity
+        inputForm.input.addEventListener('input', function () {
+          inputForm.input_type.value = c.plugins.input.type(this.value)
+        })
+
+        inputForm.input.dispatchEvent(new Event('input'))
+
+        inputForm.addEventListener('submit', function (e) {
+          e.preventDefault()
+          this.input_error.textContent = ''
+          cite.addAsync(this.input.value, {
+            forceType: inputForm.input_type.value,
+            generateGraph: false
+          })
+            .then(renderItems)
+            .catch(error => {
+              console.error(error)
+              this.input_error.textContent = error.message
+            })
+        })
+
+        configureForm.addEventListener('submit', function (e) {
+          e.preventDefault()
+          outputField.textContent = cite.format('cff', {
+            main: this.main.value,
+            message: this.message.value
+          })
+        })
+
+        useForm.addEventListener('submit', function (e) {
+          e.preventDefault()
+          window.getSelection().selectAllChildren(outputField)
+          document.execCommand('copy')
+        })
+
+        // Render items
+        let renderedItems = {}
+        let renderedItemOptions = {}
+
+        function renderItems (cite) {
+          let index = 0
+          for (const entry of cite.data) {
+            if (!renderedItems[entry.id]) {
+              const li = document.createElement('li')
+              li.textContent = renderSimpleCitation(entry)
+
+              const a = document.createElement('a')
+              a.textContent = 'remove'
+              a.setAttribute('href', '#')
+              a.addEventListener('click', function () {
+                const entryToRemove = entry.id
+                cite.data.splice(cite.data.findIndex(entry => entry.id === entryToRemove), 1)
+                renderedItems[entryToRemove].remove()
+                delete renderedItems[entryToRemove]
+              })
+              li.appendChild(a)
+
+              const detail = document.createElement('details')
+              const summary = document.createElement('summary')
+              summary.textContent = 'All metadata'
+              const pre = document.createElement('pre')
+              pre.textContent = JSON.stringify(entry, null, 2)
+              detail.appendChild(summary)
+              detail.appendChild(pre)
+              li.appendChild(detail)
+
+              renderedItems[entry.id] = li
+            }
+
+            itemsList.appendChild(renderedItems[entry.id])
+
+            if (!renderedItemOptions[entry.id]) {
+              const option = document.createElement('option')
+              option.textContent = ++index + '. ' + entry.title.slice(0, 30) + '...'
+              option.setAttribute('value', entry.id)
+              renderedItemOptions[entry.id] = option
+            }
+
+            configureForm.main.appendChild(renderedItemOptions[entry.id])
+          }
+        }
+
+        function renderSimpleCitation (entry) {
+          [entry] = c.plugins.input.util.clean([entry])
+          let citation = []
+          if (entry.author) {
+            citation.push(c.plugins.output.format('ris', [entry], { format: 'object' })[0].AU.join('; '))
+          }
+          if (entry.issued) {
+            citation.push(entry.issued.raw || entry.issued['date-parts'][0][0])
+          }
+          if (entry.title) {
+            citation.push(entry.title)
+          }
+
+          return citation.join('. ')
+        }
+
+      })()
+    </script>
+  </body>
+</html>
