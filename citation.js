@@ -13869,6 +13869,11 @@ function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && 
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+const schema = _jsYaml.default.DEFAULT_SCHEMA
+schema.compiledTypeMap.scalar['tag:yaml.org,2002:timestamp'].represent = function (object) {
+  return object.toISOString().split('T')[0]
+}
+
 _core.plugins.add('@else', {
   input: {
     '@else/yaml': {
@@ -13915,7 +13920,7 @@ _core.plugins.add('@cff', {
       if (options.type === 'object') {
         return output;
       } else {
-        return _jsYaml.default.dump(output);
+        return _jsYaml.default.dump(output, { forceQuotes: true });
       }
     }
 
