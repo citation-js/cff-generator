@@ -106,6 +106,12 @@
       <label for="main">Select the main reference (should be software or dataset)</label><br>
       <select name="main"></select><br><br>
 
+      <label for="preferred">Select the preferred citation</label><br>
+      <select name="preferred">
+        <option value="">&mdash;</option>
+      </select>
+      <br><br>
+
       <button>Generate</button>
     </form>
 
@@ -198,6 +204,7 @@
           e.preventDefault()
           outputField.textContent = cite.format('cff', {
             main: this.main.value,
+            preferred: this.preferred.value,
             message: this.message.value
           })
         })
@@ -215,6 +222,8 @@
         function renderItems (cite) {
           let index = 0
           for (const entry of cite.data) {
+            index++
+
             if (!renderedItems[entry.id]) {
               const li = document.createElement('li')
               li.textContent = renderSimpleCitation(entry)
@@ -227,6 +236,8 @@
                 cite.data.splice(cite.data.findIndex(entry => entry.id === entryToRemove), 1)
                 renderedItems[entryToRemove].remove()
                 delete renderedItems[entryToRemove]
+                renderedItemOptions[entryToRemove].remove()
+                delete renderedItemOptions[entryToRemove]
               })
               li.appendChild(a)
 
@@ -240,18 +251,19 @@
               li.appendChild(detail)
 
               renderedItems[entry.id] = li
-            }
 
-            itemsList.appendChild(renderedItems[entry.id])
+              itemsList.appendChild(renderedItems[entry.id])
+            }
 
             if (!renderedItemOptions[entry.id]) {
               const option = document.createElement('option')
-              option.textContent = ++index + '. ' + entry.title.slice(0, 30) + '...'
+              option.textContent = index + '. ' + entry.title.slice(0, 30) + '...'
               option.setAttribute('value', entry.id)
               renderedItemOptions[entry.id] = option
-            }
 
-            configureForm.main.appendChild(renderedItemOptions[entry.id])
+              configureForm.main.appendChild(renderedItemOptions[entry.id])
+              configureForm.preferred.appendChild(renderedItemOptions[entry.id].cloneNode(true))
+            }
           }
         }
 
