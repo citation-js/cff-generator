@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>CFF generator</title>
     <meta name="description" content="Generate Citation File Format files for your GitHub repository">
-    <meta name="twitter:card" content="summery">
+    <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@citation_js">
     <meta name="twitter:creator" content="@larswillighagen">
     <meta name="og:url" content="https://citation.js.org/cff-generator">
@@ -44,6 +44,12 @@
         color: red;
       }
 
+      #items:empty:before {
+        color: grey;
+        content: '(no items)';
+        font-style: italic;
+      }
+
       li {
         margin-bottom: 1em;
       }
@@ -70,22 +76,21 @@
       Generate
       <a href="https://citation-file-format.github.io/">Citation File Format</a>
       files
-      <a href="https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-citation-files">
-        for your GitHub repository
-      </a>
-      .
+      <a href="https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-citation-files">for your GitHub repository</a>.
     </p>
 
     <hr>
 
     <form id="input">
-      <label for="Input">Add a DOI, an ISBN, a PubMed ID, BibTeX, RIS, a GitHub or npm URL.</label><br>
-      <textarea name="input" rows="10"></textarea><br>
+      <p>
+        <label for="Input">Add a DOI, an ISBN, a PubMed ID, BibTeX, RIS, a GitHub or npm URL.</label>
+        <textarea name="input" rows="10"></textarea>
 
-      <label for="input_type">Override input type:</label>
-      <select name="input_type"></select><br>
+        <label for="input_type">Override input type:</label>
+        <select name="input_type"></select>
+      </p>
 
-      <br><output name="input_error"></output><br><br>
+      <p><output name="input_error"></output><p>
 
       <button>Add</button>
     </form>
@@ -239,7 +244,7 @@
                 renderedItemOptions[entryToRemove].remove()
                 delete renderedItemOptions[entryToRemove]
               })
-              li.appendChild(a)
+              li.prepend(a)
 
               const detail = document.createElement('details')
               const summary = document.createElement('summary')
