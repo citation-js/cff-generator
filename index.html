@@ -239,9 +239,13 @@
               a.addEventListener('click', function () {
                 const entryToRemove = entry.id
                 cite.data.splice(cite.data.findIndex(entry => entry.id === entryToRemove), 1)
+
                 renderedItems[entryToRemove].remove()
                 delete renderedItems[entryToRemove]
-                renderedItemOptions[entryToRemove].remove()
+
+                for (const option of renderedItemOptions[entryToRemove]) {
+                  option.remove()
+                }
                 delete renderedItemOptions[entryToRemove]
               })
               li.prepend(a)
@@ -264,10 +268,13 @@
               const option = document.createElement('option')
               option.textContent = index + '. ' + entry.title.slice(0, 30) + '...'
               option.setAttribute('value', entry.id)
-              renderedItemOptions[entry.id] = option
+              renderedItemOptions[entry.id] = [
+                option,
+                option.cloneNode(true)
+              ]
 
-              configureForm.main.appendChild(renderedItemOptions[entry.id])
-              configureForm.preferred.appendChild(renderedItemOptions[entry.id].cloneNode(true))
+              configureForm.main.appendChild(renderedItemOptions[entry.id][0])
+              configureForm.preferred.appendChild(renderedItemOptions[entry.id][1])
             }
           }
         }
