@@ -19,7 +19,6 @@ function async(data, options, callback) {
   }
 }
 var _default = exports.default = async;
-
 },{}],2:[function(require,module,exports){
 "use strict";
 
@@ -92,8 +91,7 @@ function get(options = {}) {
     return result;
   }
 }
-
-},{"../plugins/input/csl.js":25,"../plugins/output.js":33,"./validate.js":9}],3:[function(require,module,exports){
+},{"../plugins/input/csl.js":24,"../plugins/output.js":32,"./validate.js":9}],3:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -124,7 +122,6 @@ Cite.prototype[Symbol.iterator] = function* () {
 };
 Object.assign(Cite, staticMethods);
 var _default = exports.default = Cite;
-
 },{"./get.js":2,"./log.js":4,"./options.js":5,"./set.js":6,"./sort.js":7,"./static.js":8}],4:[function(require,module,exports){
 "use strict";
 
@@ -159,7 +156,6 @@ function save() {
   this.log.push([JSON.stringify(this.data), JSON.stringify(this._options)]);
   return this;
 }
-
 },{}],5:[function(require,module,exports){
 "use strict";
 
@@ -183,7 +179,6 @@ function options(options, log) {
   Object.assign(this._options, options);
   return this;
 }
-
 },{"./validate.js":9}],6:[function(require,module,exports){
 "use strict";
 
@@ -240,8 +235,7 @@ function reset(log) {
   this._options = {};
   return this;
 }
-
-},{"../plugins/input/index.js":29,"../util/fetchId.js":37}],7:[function(require,module,exports){
+},{"../plugins/input/index.js":28,"../util/fetchId.js":36}],7:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -293,8 +287,7 @@ function sort(method = [], log) {
   this.data.sort(typeof method === 'function' ? method : getSortCallback(...method, 'label'));
   return this;
 }
-
-},{"../plugin-common/output/label.js":20,"@citation-js/name":88}],8:[function(require,module,exports){
+},{"../plugin-common/output/label.js":19,"@citation-js/name":46}],8:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -323,7 +316,6 @@ Object.keys(_validate).forEach(function (key) {
   });
 });
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
-
 },{"./async.js":1,"./validate.js":9}],9:[function(require,module,exports){
 "use strict";
 
@@ -385,39 +377,7 @@ function validateOptions(options) {
   }
   return true;
 }
-
 },{}],10:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-Object.defineProperty(exports, "Cite", {
-  enumerable: true,
-  get: function () {
-    return _index.default;
-  }
-});
-Object.defineProperty(exports, "logger", {
-  enumerable: true,
-  get: function () {
-    return _logger.default;
-  }
-});
-exports.version = exports.util = exports.plugins = void 0;
-var _index = _interopRequireDefault(require("./Cite/index.js"));
-var plugins = _interopRequireWildcard(require("./plugins/index.js"));
-exports.plugins = plugins;
-var util = _interopRequireWildcard(require("./util/index.js"));
-exports.util = util;
-var _logger = _interopRequireDefault(require("./logger.js"));
-var _package = _interopRequireDefault(require("../package.json"));
-require("./plugin-common/index.js");
-function _interopRequireWildcard(e, t) { if ("function" == typeof WeakMap) var r = new WeakMap(), n = new WeakMap(); return (_interopRequireWildcard = function (e, t) { if (!t && e && e.__esModule) return e; var o, i, f = { __proto__: null, default: e }; if (null === e || "object" != typeof e && "function" != typeof e) return f; if (o = t ? n : r) { if (o.has(e)) return o.get(e); o.set(e, f); } for (const t in e) "default" !== t && {}.hasOwnProperty.call(e, t) && ((i = (o = Object.defineProperty) && Object.getOwnPropertyDescriptor(e, t)) && (i.get || i.set) ? o(f, t, i) : f[t] = e[t]); return f; })(e, t); }
-function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
-const version = exports.version = _package.default.version;
-
-},{"../package.json":84,"./Cite/index.js":3,"./logger.js":11,"./plugin-common/index.js":12,"./plugins/index.js":23,"./util/index.js":39}],11:[function(require,module,exports){
 (function (process){(function (){
 "use strict";
 
@@ -447,9 +407,8 @@ if (typeof console.Console === 'function') {
   logger._console = console;
 }
 var _default = exports.default = logger;
-
 }).call(this)}).call(this,require('_process'))
-},{"_process":143}],12:[function(require,module,exports){
+},{"_process":101}],11:[function(require,module,exports){
 "use strict";
 
 var plugins = _interopRequireWildcard(require("../plugins"));
@@ -461,8 +420,7 @@ plugins.add(_input.ref, {
   input: _input.formats,
   output: _output.default
 });
-
-},{"../plugins":23,"./input/":15,"./output/":18}],13:[function(require,module,exports){
+},{"../plugins":22,"./input/":14,"./output/":17}],12:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -472,8 +430,7 @@ exports.parse = parse;
 function parse() {
   return [];
 }
-
-},{}],14:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -483,8 +440,7 @@ exports.parse = parse;
 function parse(input) {
   return input.value || input.textContent;
 }
-
-},{}],15:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -557,8 +513,7 @@ const formats = exports.formats = {
     }
   }
 };
-
-},{"./empty.js":13,"./html.js":14,"./jquery.js":16,"./json.js":17}],16:[function(require,module,exports){
+},{"./empty.js":12,"./html.js":13,"./jquery.js":15,"./json.js":16}],15:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -568,8 +523,7 @@ exports.parse = parse;
 function parse(input) {
   return input.val() || input.text() || input.html();
 }
-
-},{}],17:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -593,8 +547,7 @@ function parseJSON(str) {
     return JSON.parse(str);
   }
 }
-
-},{"../../logger.js":11}],18:[function(require,module,exports){
+},{"../../logger.js":10}],17:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -605,8 +558,7 @@ var _json = _interopRequireDefault(require("./json.js"));
 var _label = _interopRequireDefault(require("./label.js"));
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 var _default = exports.default = Object.assign({}, _json.default, _label.default);
-
-},{"./json.js":19,"./label.js":20}],19:[function(require,module,exports){
+},{"./json.js":18,"./label.js":19}],18:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -679,8 +631,7 @@ var _default = exports.default = {
     return data.map(entry => JSON.stringify(entry)).join('\n');
   }
 };
-
-},{"../../logger.js":11,"../../plugins/index.js":23,"../../util/index.js":39}],20:[function(require,module,exports){
+},{"../../logger.js":10,"../../plugins/index.js":22,"../../util/index.js":38}],19:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -714,7 +665,33 @@ var _default = exports.default = {
     }, {});
   }
 };
+},{}],20:[function(require,module,exports){
+"use strict";
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.add = add;
+exports.get = get;
+exports.has = has;
+exports.list = list;
+exports.remove = remove;
+const configs = {};
+function add(ref, config) {
+  configs[ref] = config;
+}
+function get(ref) {
+  return configs[ref];
+}
+function has(ref) {
+  return Object.prototype.hasOwnProperty.call(configs, ref);
+}
+function remove(ref) {
+  delete configs[ref];
+}
+function list() {
+  return Object.keys(configs);
+}
 },{}],21:[function(require,module,exports){
 "use strict";
 
@@ -725,34 +702,6 @@ exports.add = add;
 exports.get = get;
 exports.has = has;
 exports.list = list;
-exports.remove = remove;
-const configs = {};
-function add(ref, config) {
-  configs[ref] = config;
-}
-function get(ref) {
-  return configs[ref];
-}
-function has(ref) {
-  return Object.prototype.hasOwnProperty.call(configs, ref);
-}
-function remove(ref) {
-  delete configs[ref];
-}
-function list() {
-  return Object.keys(configs);
-}
-
-},{}],22:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.add = add;
-exports.get = get;
-exports.has = has;
-exports.list = list;
 exports.register = void 0;
 exports.remove = remove;
 var _register = _interopRequireDefault(require("../util/register.js"));
@@ -803,8 +752,7 @@ function get(name) {
   }
   return register.get(name);
 }
-
-},{"../util/register.js":40}],23:[function(require,module,exports){
+},{"../util/register.js":39}],22:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -868,8 +816,7 @@ function has(ref) {
 function list() {
   return Object.keys(indices);
 }
-
-},{"./config.js":21,"./dict.js":22,"./input/index.js":29,"./output.js":33}],24:[function(require,module,exports){
+},{"./config.js":20,"./dict.js":21,"./input/index.js":28,"./output.js":32}],23:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -982,8 +929,7 @@ const chainLinkAsync = async input => {
   return (0, _data.dataAsync)(output, type);
 };
 exports.chainLinkAsync = chainLinkAsync;
-
-},{"../../logger.js":11,"../../util/index.js":39,"./data.js":26,"./graph.js":28,"./register.js":31,"./type.js":32}],25:[function(require,module,exports){
+},{"../../logger.js":10,"../../util/index.js":38,"./data.js":25,"./graph.js":27,"./register.js":30,"./type.js":31}],24:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -991,49 +937,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.clean = parseCsl;
 var _name = require("@citation-js/name");
-function ownKeys(e, r) {
-  var t = Object.keys(e);
-  if (Object.getOwnPropertySymbols) {
-    var o = Object.getOwnPropertySymbols(e);
-    r && (o = o.filter(function (r) {
-      return Object.getOwnPropertyDescriptor(e, r).enumerable;
-    })), t.push.apply(t, o);
-  }
-  return t;
-}
-function _objectSpread(e) {
-  for (var r = 1; r < arguments.length; r++) {
-    var t = null != arguments[r] ? arguments[r] : {};
-    r % 2 ? ownKeys(Object(t), !0).forEach(function (r) {
-      _defineProperty(e, r, t[r]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) {
-      Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r));
-    });
-  }
-  return e;
-}
-function _defineProperty(e, r, t) {
-  return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, {
-    value: t,
-    enumerable: !0,
-    configurable: !0,
-    writable: !0
-  }) : e[r] = t, e;
-}
-function _toPropertyKey(t) {
-  var i = _toPrimitive(t, "string");
-  return "symbol" == typeof i ? i : i + "";
-}
-function _toPrimitive(t, r) {
-  if ("object" != typeof t || !t) return t;
-  var e = t[Symbol.toPrimitive];
-  if (void 0 !== e) {
-    var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
-    throw new TypeError("@@toPrimitive must return a primitive value.");
-  }
-  return ("string" === r ? String : Number)(t);
-}
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == typeof i ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != typeof i) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
 const NAME = 1;
 const NAME_LIST = 2;
 const DATE = 3;
@@ -1302,8 +1210,7 @@ function parseCsl(data, bestGuessConversions = true) {
     return clean;
   });
 }
-
-},{"@citation-js/name":88}],26:[function(require,module,exports){
+},{"@citation-js/name":46}],25:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1374,8 +1281,7 @@ function removeDataParser(type, async) {
 function listDataParser(async) {
   return Object.keys(async ? asyncParsers : parsers);
 }
-
-},{"./type.js":32}],27:[function(require,module,exports){
+},{"./type.js":31}],26:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1409,38 +1315,36 @@ function dataTypeOf(thing) {
       return 'Primitive';
   }
 }
+},{}],27:[function(require,module,exports){
+"use strict";
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.applyGraph = applyGraph;
+exports.removeGraph = removeGraph;
+function applyGraph(entry, graph) {
+  if (entry._graph) {
+    const index = graph.findIndex(({
+      type
+    }) => type === '@else/list+object');
+    if (index !== -1) {
+      graph.splice(index + 1, 0, ...entry._graph.slice(0, -1));
+    }
+  }
+  entry._graph = graph;
+  return entry;
+}
+function removeGraph(entry) {
+  delete entry._graph;
+  return entry;
+}
 },{}],28:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.applyGraph = applyGraph;
-exports.removeGraph = removeGraph;
-function applyGraph(entry, graph) {
-  if (entry._graph) {
-    const index = graph.findIndex(({
-      type
-    }) => type === '@else/list+object');
-    if (index !== -1) {
-      graph.splice(index + 1, 0, ...entry._graph.slice(0, -1));
-    }
-  }
-  entry._graph = graph;
-  return entry;
-}
-function removeGraph(entry) {
-  delete entry._graph;
-  return entry;
-}
-
-},{}],29:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
 var _exportNames = {
   util: true
 };
@@ -1499,8 +1403,7 @@ Object.keys(_data).forEach(function (key) {
 });
 function _interopRequireWildcard(e, t) { if ("function" == typeof WeakMap) var r = new WeakMap(), n = new WeakMap(); return (_interopRequireWildcard = function (e, t) { if (!t && e && e.__esModule) return e; var o, i, f = { __proto__: null, default: e }; if (null === e || "object" != typeof e && "function" != typeof e) return f; if (o = t ? n : r) { if (o.has(e)) return o.get(e); o.set(e, f); } for (const t in e) "default" !== t && {}.hasOwnProperty.call(e, t) && ((i = (o = Object.defineProperty) && Object.getOwnPropertyDescriptor(e, t)) && (i.get || i.set) ? o(f, t, i) : f[t] = e[t]); return f; })(e, t); }
 const util = exports.util = Object.assign({}, dataType, graph, parser, csl);
-
-},{"./chain":24,"./csl.js":25,"./data":26,"./dataType.js":27,"./graph.js":28,"./parser.js":30,"./register":31,"./type":32}],30:[function(require,module,exports){
+},{"./chain":23,"./csl.js":24,"./data":25,"./dataType.js":26,"./graph.js":27,"./parser.js":29,"./register":30,"./type":31}],29:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1508,28 +1411,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.TypeParser = exports.FormatParser = exports.DataParser = void 0;
 var _type = require("./type.js");
-function _defineProperty(e, r, t) {
-  return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, {
-    value: t,
-    enumerable: !0,
-    configurable: !0,
-    writable: !0
-  }) : e[r] = t, e;
-}
-function _toPropertyKey(t) {
-  var i = _toPrimitive(t, "string");
-  return "symbol" == typeof i ? i : i + "";
-}
-function _toPrimitive(t, r) {
-  if ("object" != typeof t || !t) return t;
-  var e = t[Symbol.toPrimitive];
-  if (void 0 !== e) {
-    var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
-    throw new TypeError("@@toPrimitive must return a primitive value.");
-  }
-  return ("string" === r ? String : Number)(t);
-}
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == typeof i ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != typeof i) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
 class TypeParser {
   constructor(data) {
     _defineProperty(this, "validDataTypes", ['String', 'Array', 'SimpleObject', 'ComplexObject', 'Primitive']);
@@ -1721,8 +1605,7 @@ class FormatParser {
   }
 }
 exports.FormatParser = FormatParser;
-
-},{"./type.js":32}],31:[function(require,module,exports){
+},{"./type.js":31}],30:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1782,8 +1665,7 @@ function has(format) {
 function list() {
   return Object.keys(formats);
 }
-
-},{"./data.js":26,"./parser.js":30,"./type.js":32}],32:[function(require,module,exports){
+},{"./data.js":25,"./parser.js":29,"./type.js":31}],31:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1894,8 +1776,7 @@ function treeTypeParser() {
   };
 }
 const typeMatcher = exports.typeMatcher = /^(?:@(.+?))(?:\/(?:(.+?)\+)?(?:(.+)))?$/;
-
-},{"../../logger.js":11,"./dataType.js":27}],33:[function(require,module,exports){
+},{"../../logger.js":10,"./dataType.js":26}],32:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1936,8 +1817,7 @@ function format(name, data, ...options) {
   }
   return register.get(name)(data, ...options);
 }
-
-},{"../util/register.js":40}],34:[function(require,module,exports){
+},{"../util/register.js":39}],33:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1945,49 +1825,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.downgradeCsl = downgradeCsl;
 exports.upgradeCsl = upgradeCsl;
-function ownKeys(e, r) {
-  var t = Object.keys(e);
-  if (Object.getOwnPropertySymbols) {
-    var o = Object.getOwnPropertySymbols(e);
-    r && (o = o.filter(function (r) {
-      return Object.getOwnPropertyDescriptor(e, r).enumerable;
-    })), t.push.apply(t, o);
-  }
-  return t;
-}
-function _objectSpread(e) {
-  for (var r = 1; r < arguments.length; r++) {
-    var t = null != arguments[r] ? arguments[r] : {};
-    r % 2 ? ownKeys(Object(t), !0).forEach(function (r) {
-      _defineProperty(e, r, t[r]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) {
-      Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r));
-    });
-  }
-  return e;
-}
-function _defineProperty(e, r, t) {
-  return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, {
-    value: t,
-    enumerable: !0,
-    configurable: !0,
-    writable: !0
-  }) : e[r] = t, e;
-}
-function _toPropertyKey(t) {
-  var i = _toPrimitive(t, "string");
-  return "symbol" == typeof i ? i : i + "";
-}
-function _toPrimitive(t, r) {
-  if ("object" != typeof t || !t) return t;
-  var e = t[Symbol.toPrimitive];
-  if (void 0 !== e) {
-    var i = e.call(t, r || "default");
-    if ("object" != typeof i) return i;
-    throw new TypeError("@@toPrimitive must return a primitive value.");
-  }
-  return ("string" === r ? String : Number)(t);
-}
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == typeof i ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != typeof i) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
 function upgradeCsl(item) {
   if (Array.isArray(item)) {
     return item.map(upgradeCsl);
@@ -2016,8 +1858,7 @@ function downgradeCsl(item) {
   }
   return item;
 }
-
-},{}],35:[function(require,module,exports){
+},{}],34:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2047,8 +1888,7 @@ function deepCopy(value, seen = new Set()) {
   return copy;
 }
 var _default = exports.default = deepCopy;
-
-},{}],36:[function(require,module,exports){
+},{}],35:[function(require,module,exports){
 (function (process){(function (){
 "use strict";
 
@@ -2143,9 +1983,8 @@ function setUserAgent(newUserAgent) {
   userAgent = newUserAgent;
 }
 var _default = exports.default = fetchFile;
-
 }).call(this)}).call(this,require('_process'))
-},{"../../package.json":84,"../logger.js":11,"_process":143,"node-fetch":140,"sync-fetch":144}],37:[function(require,module,exports){
+},{"../../package.json":42,"../logger.js":10,"_process":101,"node-fetch":98,"sync-fetch":102}],36:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2160,8 +1999,7 @@ function fetchId(list, prefix) {
   return id;
 }
 var _default = exports.default = fetchId;
-
-},{}],38:[function(require,module,exports){
+},{}],37:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2211,8 +2049,7 @@ class Grammar {
   }
 }
 exports.Grammar = Grammar;
-
-},{"./deepCopy.js":35}],39:[function(require,module,exports){
+},{"./deepCopy.js":34}],38:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2293,8 +2130,7 @@ var _register = _interopRequireDefault(require("./register.js"));
 var _grammar = require("./grammar.js");
 var _translator = require("./translator.js");
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
-
-},{"./csl.js":34,"./deepCopy.js":35,"./fetchFile.js":36,"./fetchId.js":37,"./grammar.js":38,"./register.js":40,"./stack.js":41,"./translator.js":42}],40:[function(require,module,exports){
+},{"./csl.js":33,"./deepCopy.js":34,"./fetchFile.js":35,"./fetchId.js":36,"./grammar.js":37,"./register.js":39,"./stack.js":40,"./translator.js":41}],39:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2330,2610 +2166,223 @@ class Register {
   }
 }
 var _default = exports.default = Register;
+},{}],40:[function(require,module,exports){
+"use strict";
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+class TokenStack {
+  constructor(array) {
+    this.stack = array;
+    this.index = 0;
+    this.current = this.stack[this.index];
+  }
+  static getPatternText(pattern) {
+    return `"${pattern instanceof RegExp ? pattern.source : pattern}"`;
+  }
+  static getMatchCallback(pattern) {
+    if (Array.isArray(pattern)) {
+      const matches = pattern.map(TokenStack.getMatchCallback);
+      return token => matches.some(matchCallback => matchCallback(token));
+    } else if (pattern instanceof Function) {
+      return pattern;
+    } else if (pattern instanceof RegExp) {
+      return token => pattern.test(token);
+    } else {
+      return token => pattern === token;
+    }
+  }
+  tokensLeft() {
+    return this.stack.length - this.index;
+  }
+  matches(pattern) {
+    return TokenStack.getMatchCallback(pattern)(this.current, this.index, this.stack);
+  }
+  matchesSequence(sequence) {
+    const part = this.stack.slice(this.index, this.index + sequence.length).join('');
+    return typeof sequence === 'string' ? part === sequence : sequence.every((pattern, index) => TokenStack.getMatchCallback(pattern)(part[index]));
+  }
+  consumeToken(pattern = /^[\s\S]$/, {
+    inverse = false,
+    spaced = true
+  } = {}) {
+    if (spaced) {
+      this.consumeWhitespace();
+    }
+    const token = this.current;
+    const match = TokenStack.getMatchCallback(pattern)(token, this.index, this.stack);
+    if (match) {
+      this.current = this.stack[++this.index];
+    } else {
+      throw new SyntaxError(`Unexpected token at index ${this.index}: Expected ${TokenStack.getPatternText(pattern)}, got "${token}"`);
+    }
+    if (spaced) {
+      this.consumeWhitespace();
+    }
+    return token;
+  }
+  consumeWhitespace(pattern = /^\s$/, {
+    optional = true
+  } = {}) {
+    return this.consume(pattern, {
+      min: +!optional
+    });
+  }
+  consumeN(length) {
+    if (this.tokensLeft() < length) {
+      throw new SyntaxError('Not enough tokens left');
+    }
+    const start = this.index;
+    while (length--) {
+      this.current = this.stack[++this.index];
+    }
+    return this.stack.slice(start, this.index).join('');
+  }
+  consumeSequence(sequence) {
+    if (this.matchesSequence(sequence)) {
+      return this.consumeN(sequence.length);
+    } else {
+      throw new SyntaxError(`Expected "${sequence}", got "${this.consumeN(sequence.length)}"`);
+    }
+  }
+  consume(pattern = /^[\s\S]$/, {
+    min = 0,
+    max = Infinity,
+    inverse = false,
+    tokenMap,
+    tokenFilter
+  } = {}) {
+    const start = this.index;
+    const match = TokenStack.getMatchCallback(pattern);
+    while (match(this.current, this.index, this.stack) !== inverse) {
+      this.current = this.stack[++this.index];
+    }
+    let consumed = this.stack.slice(start, this.index);
+    if (consumed.length < min) {
+      throw new SyntaxError(`Not enough ${TokenStack.getPatternText(pattern)}`);
+    } else if (consumed.length > max) {
+      throw new SyntaxError(`Too many ${TokenStack.getPatternText(pattern)}`);
+    }
+    if (tokenMap) {
+      consumed = consumed.map(tokenMap);
+    }
+    if (tokenFilter) {
+      consumed = consumed.filter(tokenFilter);
+    }
+    return consumed.join('');
+  }
+}
+var _default = exports.default = TokenStack;
 },{}],41:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
-class TokenStack {
-  constructor(array) {
-    this.stack = array;
-    this.index = 0;
-    this.current = this.stack[this.index];
-  }
-  static getPatternText(pattern) {
-    return `"${pattern instanceof RegExp ? pattern.source : pattern}"`;
-  }
-  static getMatchCallback(pattern) {
-    if (Array.isArray(pattern)) {
-      const matches = pattern.map(TokenStack.getMatchCallback);
-      return token => matches.some(matchCallback => matchCallback(token));
-    } else if (pattern instanceof Function) {
-      return pattern;
-    } else if (pattern instanceof RegExp) {
-      return token => pattern.test(token);
-    } else {
-      return token => pattern === token;
+exports.Translator = void 0;
+function createConditionEval(condition) {
+  return function conditionEval(input) {
+    if (typeof condition === 'boolean') {
+      return condition;
     }
-  }
-  tokensLeft() {
-    return this.stack.length - this.index;
-  }
-  matches(pattern) {
-    return TokenStack.getMatchCallback(pattern)(this.current, this.index, this.stack);
-  }
-  matchesSequence(sequence) {
-    const part = this.stack.slice(this.index, this.index + sequence.length).join('');
-    return typeof sequence === 'string' ? part === sequence : sequence.every((pattern, index) => TokenStack.getMatchCallback(pattern)(part[index]));
-  }
-  consumeToken(pattern = /^[\s\S]$/, {
-    inverse = false,
-    spaced = true
-  } = {}) {
-    if (spaced) {
-      this.consumeWhitespace();
-    }
-    const token = this.current;
-    const match = TokenStack.getMatchCallback(pattern)(token, this.index, this.stack);
-    if (match) {
-      this.current = this.stack[++this.index];
-    } else {
-      throw new SyntaxError(`Unexpected token at index ${this.index}: Expected ${TokenStack.getPatternText(pattern)}, got "${token}"`);
-    }
-    if (spaced) {
-      this.consumeWhitespace();
-    }
-    return token;
-  }
-  consumeWhitespace(pattern = /^\s$/, {
-    optional = true
-  } = {}) {
-    return this.consume(pattern, {
-      min: +!optional
+    return Object.keys(condition).every(prop => {
+      const value = condition[prop];
+      if (value === true) {
+        return prop in input;
+      } else if (value === false) {
+        return !(prop in input);
+      } else if (typeof value === 'function') {
+        return value(input[prop]);
+      } else if (Array.isArray(value)) {
+        return value.includes(input[prop]);
+      } else {
+        return input[prop] === value;
+      }
     });
+  };
+}
+function parsePropStatement(prop, toSource) {
+  let inputProp;
+  let outputProp;
+  let convert;
+  let condition;
+  if (typeof prop === 'string') {
+    inputProp = outputProp = prop;
+  } else if (prop) {
+    inputProp = toSource ? prop.target : prop.source;
+    outputProp = toSource ? prop.source : prop.target;
+    if (prop.convert) {
+      convert = toSource ? prop.convert.toSource : prop.convert.toTarget;
+    }
+    if (prop.when) {
+      condition = toSource ? prop.when.target : prop.when.source;
+      if (condition != null) {
+        condition = createConditionEval(condition);
+      }
+    }
+  } else {
+    return null;
   }
-  consumeN(length) {
-    if (this.tokensLeft() < length) {
-      throw new SyntaxError('Not enough tokens left');
+  inputProp = [].concat(inputProp).filter(Boolean);
+  outputProp = [].concat(outputProp).filter(Boolean);
+  return {
+    inputProp,
+    outputProp,
+    convert,
+    condition
+  };
+}
+function createConverter(props, toSource) {
+  toSource = toSource === Translator.CONVERT_TO_SOURCE;
+  props = props.map(prop => parsePropStatement(prop, toSource)).filter(Boolean);
+  return function converter(input) {
+    const output = {};
+    for (const {
+      inputProp,
+      outputProp,
+      convert,
+      condition
+    } of props) {
+      if (outputProp.length === 0) {
+        continue;
+      } else if (condition && !condition(input)) {
+        continue;
+      } else if (inputProp.length !== 0 && inputProp.every(prop => !(prop in input))) {
+        continue;
+      }
+      let outputData = inputProp.map(prop => input[prop]);
+      if (convert) {
+        try {
+          const converted = convert.apply(input, outputData);
+          outputData = outputProp.length === 1 ? [converted] : converted;
+        } catch (cause) {
+          throw new Error(`Failed to convert ${inputProp} to ${outputProp}`, {
+            cause
+          });
+        }
+      }
+      outputProp.forEach((prop, index) => {
+        const value = outputData[index];
+        if (value !== undefined) {
+          output[prop] = value;
+        }
+      });
     }
-    const start = this.index;
-    while (length--) {
-      this.current = this.stack[++this.index];
-    }
-    return this.stack.slice(start, this.index).join('');
-  }
-  consumeSequence(sequence) {
-    if (this.matchesSequence(sequence)) {
-      return this.consumeN(sequence.length);
-    } else {
-      throw new SyntaxError(`Expected "${sequence}", got "${this.consumeN(sequence.length)}"`);
-    }
-  }
-  consume(pattern = /^[\s\S]$/, {
-    min = 0,
-    max = Infinity,
-    inverse = false,
-    tokenMap,
-    tokenFilter
-  } = {}) {
-    const start = this.index;
-    const match = TokenStack.getMatchCallback(pattern);
-    while (match(this.current, this.index, this.stack) !== inverse) {
-      this.current = this.stack[++this.index];
-    }
-    let consumed = this.stack.slice(start, this.index);
-    if (consumed.length < min) {
-      throw new SyntaxError(`Not enough ${TokenStack.getPatternText(pattern)}`);
-    } else if (consumed.length > max) {
-      throw new SyntaxError(`Too many ${TokenStack.getPatternText(pattern)}`);
-    }
-    if (tokenMap) {
-      consumed = consumed.map(tokenMap);
-    }
-    if (tokenFilter) {
-      consumed = consumed.filter(tokenFilter);
-    }
-    return consumed.join('');
+    return output;
+  };
+}
+class Translator {
+  constructor(props) {
+    this.convertToSource = createConverter(props, Translator.CONVERT_TO_SOURCE);
+    this.convertToTarget = createConverter(props, Translator.CONVERT_TO_TARGET);
   }
 }
-var _default = exports.default = TokenStack;
-
+exports.Translator = Translator;
+Translator.CONVERT_TO_SOURCE = Symbol('convert to source');
+Translator.CONVERT_TO_TARGET = Symbol('convert to target');
 },{}],42:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.Translator = void 0;
-function createConditionEval(condition) {
-  return function conditionEval(input) {
-    if (typeof condition === 'boolean') {
-      return condition;
-    }
-    return Object.keys(condition).every(prop => {
-      const value = condition[prop];
-      if (value === true) {
-        return prop in input;
-      } else if (value === false) {
-        return !(prop in input);
-      } else if (typeof value === 'function') {
-        return value(input[prop]);
-      } else if (Array.isArray(value)) {
-        return value.includes(input[prop]);
-      } else {
-        return input[prop] === value;
-      }
-    });
-  };
-}
-function parsePropStatement(prop, toSource) {
-  let inputProp;
-  let outputProp;
-  let convert;
-  let condition;
-  if (typeof prop === 'string') {
-    inputProp = outputProp = prop;
-  } else if (prop) {
-    inputProp = toSource ? prop.target : prop.source;
-    outputProp = toSource ? prop.source : prop.target;
-    if (prop.convert) {
-      convert = toSource ? prop.convert.toSource : prop.convert.toTarget;
-    }
-    if (prop.when) {
-      condition = toSource ? prop.when.target : prop.when.source;
-      if (condition != null) {
-        condition = createConditionEval(condition);
-      }
-    }
-  } else {
-    return null;
-  }
-  inputProp = [].concat(inputProp).filter(Boolean);
-  outputProp = [].concat(outputProp).filter(Boolean);
-  return {
-    inputProp,
-    outputProp,
-    convert,
-    condition
-  };
-}
-function createConverter(props, toSource) {
-  toSource = toSource === Translator.CONVERT_TO_SOURCE;
-  props = props.map(prop => parsePropStatement(prop, toSource)).filter(Boolean);
-  return function converter(input) {
-    const output = {};
-    for (const {
-      inputProp,
-      outputProp,
-      convert,
-      condition
-    } of props) {
-      if (outputProp.length === 0) {
-        continue;
-      } else if (condition && !condition(input)) {
-        continue;
-      } else if (inputProp.length !== 0 && inputProp.every(prop => !(prop in input))) {
-        continue;
-      }
-      let outputData = inputProp.map(prop => input[prop]);
-      if (convert) {
-        try {
-          const converted = convert.apply(input, outputData);
-          outputData = outputProp.length === 1 ? [converted] : converted;
-        } catch (cause) {
-          throw new Error(`Failed to convert ${inputProp} to ${outputProp}`, {
-            cause
-          });
-        }
-      }
-      outputProp.forEach((prop, index) => {
-        const value = outputData[index];
-        if (value !== undefined) {
-          output[prop] = value;
-        }
-      });
-    }
-    return output;
-  };
-}
-class Translator {
-  constructor(props) {
-    this.convertToSource = createConverter(props, Translator.CONVERT_TO_SOURCE);
-    this.convertToTarget = createConverter(props, Translator.CONVERT_TO_TARGET);
-  }
-}
-exports.Translator = Translator;
-Translator.CONVERT_TO_SOURCE = Symbol('convert to source');
-Translator.CONVERT_TO_TARGET = Symbol('convert to target');
-
-},{}],43:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-function async(data, options, callback) {
-  if (typeof options === 'function' && !callback) {
-    callback = options;
-    options = undefined;
-  }
-  const promise = new this().setAsync(data, options);
-  if (typeof callback === 'function') {
-    promise.then(callback);
-    return undefined;
-  } else {
-    return promise;
-  }
-}
-var _default = exports.default = async;
-},{}],44:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.format = format;
-exports.get = get;
-exports.getIds = getIds;
-var _validate = require("./validate.js");
-var _output = require("../plugins/output.js");
-var _csl = require("../plugins/input/csl.js");
-function getIds() {
-  return this.data.map(entry => entry.id);
-}
-function format(format, ...options) {
-  return (0, _output.format)(format, (0, _csl.clean)(this.data), ...options);
-}
-function get(options = {}) {
-  (0, _validate.validateOutputOptions)(options);
-  const parsedOptions = Object.assign({}, this.defaultOptions, this._options.output, options);
-  const {
-    type,
-    style
-  } = parsedOptions;
-  const [styleType, styleFormat] = style.split('-');
-  const newStyle = styleType === 'citation' ? 'bibliography' : styleType === 'csl' ? 'data' : styleType;
-  const newType = type === 'string' ? 'text' : type === 'json' ? 'object' : type;
-  let formatOptions;
-  switch (newStyle) {
-    case 'bibliography':
-      {
-        const {
-          lang,
-          append,
-          prepend
-        } = parsedOptions;
-        formatOptions = {
-          template: styleFormat,
-          lang,
-          format: newType,
-          append,
-          prepend
-        };
-        break;
-      }
-    case 'data':
-    case 'bibtex':
-    case 'bibtxt':
-    case 'ndjson':
-    case 'ris':
-      formatOptions = {
-        type: newType
-      };
-      break;
-    default:
-      throw new Error(`Invalid style "${newStyle}"`);
-  }
-  const result = this.format(newStyle, Object.assign(formatOptions, options._newOptions));
-  const {
-    format
-  } = parsedOptions;
-  if (format === 'real' && newType === 'html' && typeof document !== 'undefined' && typeof document.createElement === 'function') {
-    const tmp = document.createElement('div');
-    tmp.innerHTML = result;
-    return tmp.firstChild;
-  } else if (format === 'string' && typeof result === 'object') {
-    return JSON.stringify(result);
-  } else {
-    return result;
-  }
-}
-},{"../plugins/input/csl.js":66,"../plugins/output.js":74,"./validate.js":51}],45:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-var log = _interopRequireWildcard(require("./log.js"));
-var options = _interopRequireWildcard(require("./options.js"));
-var set = _interopRequireWildcard(require("./set.js"));
-var sort = _interopRequireWildcard(require("./sort.js"));
-var get = _interopRequireWildcard(require("./get.js"));
-var staticMethods = _interopRequireWildcard(require("./static.js"));
-function _interopRequireWildcard(e, t) { if ("function" == typeof WeakMap) var r = new WeakMap(), n = new WeakMap(); return (_interopRequireWildcard = function (e, t) { if (!t && e && e.__esModule) return e; var o, i, f = { __proto__: null, default: e }; if (null === e || "object" != typeof e && "function" != typeof e) return f; if (o = t ? n : r) { if (o.has(e)) return o.get(e); o.set(e, f); } for (const t in e) "default" !== t && {}.hasOwnProperty.call(e, t) && ((i = (o = Object.defineProperty) && Object.getOwnPropertyDescriptor(e, t)) && (i.get || i.set) ? o(f, t, i) : f[t] = e[t]); return f; })(e, t); }
-function Cite(data, options = {}) {
-  if (!(this instanceof Cite)) {
-    return new Cite(data, options);
-  }
-  this._options = options;
-  this.log = [];
-  this.data = [];
-  this.set(data, options);
-  this.options(options);
-  return this;
-}
-Object.assign(Cite.prototype, log, options, set, sort, get);
-Cite.prototype[Symbol.iterator] = function* () {
-  yield* this.data;
-};
-Object.assign(Cite, staticMethods);
-var _default = exports.default = Cite;
-},{"./get.js":44,"./log.js":46,"./options.js":47,"./set.js":48,"./sort.js":49,"./static.js":50}],46:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.currentVersion = currentVersion;
-exports.retrieveLastVersion = retrieveLastVersion;
-exports.retrieveVersion = retrieveVersion;
-exports.save = save;
-exports.undo = undo;
-function currentVersion() {
-  return this.log.length;
-}
-function retrieveVersion(versnum = 1) {
-  if (versnum <= 0 || versnum > this.currentVersion()) {
-    return null;
-  } else {
-    const [data, options] = this.log[versnum - 1];
-    const image = new this.constructor(JSON.parse(data), JSON.parse(options));
-    image.log = this.log.slice(0, versnum);
-    return image;
-  }
-}
-function undo(number = 1) {
-  return this.retrieveVersion(this.currentVersion() - number);
-}
-function retrieveLastVersion() {
-  return this.retrieveVersion(this.currentVersion());
-}
-function save() {
-  this.log.push([JSON.stringify(this.data), JSON.stringify(this._options)]);
-  return this;
-}
-},{}],47:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.defaultOptions = void 0;
-exports.options = options;
-var _validate = require("./validate.js");
-const defaultOptions = exports.defaultOptions = {
-  format: 'real',
-  type: 'json',
-  style: 'csl',
-  lang: 'en-US'
-};
-function options(options, log) {
-  (0, _validate.validateOutputOptions)(options);
-  if (log) {
-    this.save();
-  }
-  Object.assign(this._options, options);
-  return this;
-}
-},{"./validate.js":51}],48:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.add = add;
-exports.addAsync = addAsync;
-exports.reset = reset;
-exports.set = set;
-exports.setAsync = setAsync;
-var _index = require("../plugins/input/index.js");
-var _fetchId = _interopRequireDefault(require("../util/fetchId.js"));
-function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
-function add(data, options = {}, log = false) {
-  if (options === true || log === true) {
-    this.save();
-  }
-  this.data.push(...(0, _index.chain)(data, options));
-  this.data.filter(entry => !Object.prototype.hasOwnProperty.call(entry, 'id')).forEach(entry => {
-    entry.id = (0, _fetchId.default)(this.getIds(), 'temp_id_');
-  });
-  return this;
-}
-async function addAsync(data, options = {}, log = false) {
-  if (options === true || log === true) {
-    this.save();
-  }
-  this.data.push(...(await (0, _index.chainAsync)(data, options)));
-  this.data.filter(entry => !Object.prototype.hasOwnProperty.call(entry, 'id')).forEach(entry => {
-    entry.id = (0, _fetchId.default)(this.getIds(), 'temp_id_');
-  });
-  return this;
-}
-function set(data, options = {}, log = false) {
-  if (options === true || log === true) {
-    this.save();
-  }
-  this.data = [];
-  return typeof options !== 'boolean' ? this.add(data, options) : this.add(data);
-}
-async function setAsync(data, options = {}, log = false) {
-  if (options === true || log === true) {
-    this.save();
-  }
-  this.data = [];
-  return typeof options !== 'boolean' ? this.addAsync(data, options) : this.addAsync(data);
-}
-function reset(log) {
-  if (log) {
-    this.save();
-  }
-  this.data = [];
-  this._options = {};
-  return this;
-}
-},{"../plugins/input/index.js":70,"../util/fetchId.js":78}],49:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.sort = sort;
-var _label = require("../plugin-common/output/label.js");
-var _name = require("@citation-js/name");
-function getComparisonValue(obj, prop, label = prop === 'label') {
-  let value = label ? (0, _label.getLabel)(obj) : obj[prop];
-  switch (prop) {
-    case 'author':
-    case 'editor':
-      return value.map(name => name.literal || name.family || (0, _name.format)(name));
-    case 'accessed':
-    case 'issued':
-      return value['date-parts'][0];
-    case 'page':
-      return value.split('-').map(num => parseInt(num));
-    case 'edition':
-    case 'issue':
-    case 'volume':
-      value = parseInt(value);
-      return !isNaN(value) ? value : -Infinity;
-    default:
-      return value || -Infinity;
-  }
-}
-function compareProp(entryA, entryB, prop, flip = /^!/.test(prop)) {
-  prop = prop.replace(/^!/, '');
-  const a = getComparisonValue(entryA, prop);
-  const b = getComparisonValue(entryB, prop);
-  return (flip ? -1 : 1) * (a > b ? 1 : a < b ? -1 : 0);
-}
-function getSortCallback(...props) {
-  return (a, b) => {
-    const keys = props.slice();
-    let output = 0;
-    while (!output && keys.length) {
-      output = compareProp(a, b, keys.shift());
-    }
-    return output;
-  };
-}
-function sort(method = [], log) {
-  if (log) {
-    this.save();
-  }
-  this.data.sort(typeof method === 'function' ? method : getSortCallback(...method, 'label'));
-  return this;
-}
-},{"../plugin-common/output/label.js":61,"@citation-js/name":88}],50:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var _exportNames = {
-  async: true
-};
-Object.defineProperty(exports, "async", {
-  enumerable: true,
-  get: function () {
-    return _async.default;
-  }
-});
-var _async = _interopRequireDefault(require("./async.js"));
-var _validate = require("./validate.js");
-Object.keys(_validate).forEach(function (key) {
-  if (key === "default" || key === "__esModule") return;
-  if (Object.prototype.hasOwnProperty.call(_exportNames, key)) return;
-  if (key in exports && exports[key] === _validate[key]) return;
-  Object.defineProperty(exports, key, {
-    enumerable: true,
-    get: function () {
-      return _validate[key];
-    }
-  });
-});
-function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
-},{"./async.js":43,"./validate.js":51}],51:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.validateOptions = validateOptions;
-exports.validateOutputOptions = validateOutputOptions;
-const formats = ['real', 'string'];
-const types = ['json', 'html', 'string', 'rtf'];
-const styles = ['csl', 'bibtex', 'bibtxt', 'citation-*', 'ris', 'ndjson'];
-const wrapperTypes = ['string', 'function'];
-function validateOutputOptions(options) {
-  if (typeof options !== 'object') {
-    throw new TypeError('Options not an object!');
-  }
-  const {
-    format,
-    type,
-    style,
-    lang,
-    append,
-    prepend
-  } = options;
-  if (format && !formats.includes(format)) {
-    throw new TypeError(`Option format ("${format}") should be one of: ${formats}`);
-  } else if (type && !types.includes(type)) {
-    throw new TypeError(`Option type ("${type}") should be one of: ${types}`);
-  } else if (style && !styles.includes(style) && !/^citation/.test(style)) {
-    throw new TypeError(`Option style ("${style}") should be one of: ${styles}`);
-  } else if (lang && typeof lang !== 'string') {
-    throw new TypeError(`Option lang should be a string, but is a ${typeof lang}`);
-  } else if (prepend && !wrapperTypes.includes(typeof prepend)) {
-    throw new TypeError(`Option prepend should be a string or a function, but is a ${typeof prepend}`);
-  } else if (append && !wrapperTypes.includes(typeof append)) {
-    throw new TypeError(`Option append should be a string or a function, but is a ${typeof append}`);
-  }
-  if (/^citation/.test(style) && type === 'json') {
-    throw new Error(`Combination type/style of json/citation-* is not valid: ${type}/${style}`);
-  }
-  return true;
-}
-function validateOptions(options) {
-  if (typeof options !== 'object') {
-    throw new TypeError('Options should be an object');
-  }
-  if (options.output) {
-    validateOutputOptions(options.output);
-  } else if (options.maxChainLength && typeof options.maxChainLength !== 'number') {
-    throw new TypeError('Option maxChainLength should be a number');
-  } else if (options.forceType && typeof options.forceType !== 'string') {
-    throw new TypeError('Option forceType should be a string');
-  } else if (options.generateGraph != null && typeof options.generateGraph !== 'boolean') {
-    throw new TypeError('Option generateGraph should be a boolean');
-  } else if (options.strict != null && typeof options.strict !== 'boolean') {
-    throw new TypeError('Option strict should be a boolean');
-  } else if (options.target != null && typeof options.target !== 'string') {
-    throw new TypeError('Option target should be a boolean');
-  }
-  return true;
-}
-},{}],52:[function(require,module,exports){
-(function (process){(function (){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-const logger = {
-  _output(level, scope, msg) {
-    this._log.push(scope, msg);
-    if (this._levels.indexOf(level) < this._levels.indexOf(this.level)) {
-      return;
-    }
-    this._console.log(scope, ...msg);
-  },
-  _console: null,
-  _log: [],
-  _levels: ['http', 'debug', 'unmapped', 'info', 'warn', 'error', 'silent'],
-  level: 'silent'
-};
-for (const level of logger._levels) {
-  logger[level] = (scope, ...msg) => logger._output(level, scope, msg);
-}
-if (typeof console.Console === 'function') {
-  logger._console = new console.Console(process.stderr);
-} else {
-  logger._console = console;
-}
-var _default = exports.default = logger;
-}).call(this)}).call(this,require('_process'))
-},{"_process":143}],53:[function(require,module,exports){
-"use strict";
-
-var plugins = _interopRequireWildcard(require("../plugins"));
-var _input = require("./input/");
-var _output = _interopRequireDefault(require("./output/"));
-function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
-function _interopRequireWildcard(e, t) { if ("function" == typeof WeakMap) var r = new WeakMap(), n = new WeakMap(); return (_interopRequireWildcard = function (e, t) { if (!t && e && e.__esModule) return e; var o, i, f = { __proto__: null, default: e }; if (null === e || "object" != typeof e && "function" != typeof e) return f; if (o = t ? n : r) { if (o.has(e)) return o.get(e); o.set(e, f); } for (const t in e) "default" !== t && {}.hasOwnProperty.call(e, t) && ((i = (o = Object.defineProperty) && Object.getOwnPropertyDescriptor(e, t)) && (i.get || i.set) ? o(f, t, i) : f[t] = e[t]); return f; })(e, t); }
-plugins.add(_input.ref, {
-  input: _input.formats,
-  output: _output.default
-});
-},{"../plugins":64,"./input/":56,"./output/":59}],54:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.parse = parse;
-function parse() {
-  return [];
-}
-},{}],55:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.parse = parse;
-function parse(input) {
-  return input.value || input.textContent;
-}
-},{}],56:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.ref = exports.parsers = exports.formats = void 0;
-var empty = _interopRequireWildcard(require("./empty.js"));
-var json = _interopRequireWildcard(require("./json.js"));
-var jquery = _interopRequireWildcard(require("./jquery.js"));
-var html = _interopRequireWildcard(require("./html.js"));
-function _interopRequireWildcard(e, t) { if ("function" == typeof WeakMap) var r = new WeakMap(), n = new WeakMap(); return (_interopRequireWildcard = function (e, t) { if (!t && e && e.__esModule) return e; var o, i, f = { __proto__: null, default: e }; if (null === e || "object" != typeof e && "function" != typeof e) return f; if (o = t ? n : r) { if (o.has(e)) return o.get(e); o.set(e, f); } for (const t in e) "default" !== t && {}.hasOwnProperty.call(e, t) && ((i = (o = Object.defineProperty) && Object.getOwnPropertyDescriptor(e, t)) && (i.get || i.set) ? o(f, t, i) : f[t] = e[t]); return f; })(e, t); }
-const ref = exports.ref = '@else';
-const parsers = exports.parsers = {
-  empty,
-  json,
-  jquery,
-  html
-};
-const formats = exports.formats = {
-  '@empty/text': {
-    parse: empty.parse,
-    parseType: {
-      dataType: 'String',
-      predicate: input => input === ''
-    }
-  },
-  '@empty/whitespace+text': {
-    parse: empty.parse,
-    parseType: {
-      dataType: 'String',
-      predicate: /^\s+$/
-    }
-  },
-  '@empty': {
-    parse: empty.parse,
-    parseType: {
-      dataType: 'Primitive',
-      predicate: input => input == null
-    }
-  },
-  '@else/json': {
-    parse: json.parse,
-    parseType: {
-      dataType: 'String',
-      predicate: /^\s*(\{[\S\s]*\}|\[[\S\s]*\])\s*$/
-    }
-  },
-  '@else/url': {
-    parseType: {
-      dataType: 'String',
-      predicate: /^https?:\/\/(([\w-]+\.)*[\w-]+)(:\d+)?(\/[^?/]*)*(\?[^#]*)?(#.*)?$/i
-    }
-  },
-  '@else/jquery': {
-    parse: jquery.parse,
-    parseType: {
-      dataType: 'ComplexObject',
-      predicate(input) {
-        return typeof jQuery !== 'undefined' && input instanceof jQuery;
-      }
-    }
-  },
-  '@else/html': {
-    parse: html.parse,
-    parseType: {
-      dataType: 'ComplexObject',
-      predicate(input) {
-        return typeof HTMLElement !== 'undefined' && input instanceof HTMLElement;
-      }
-    }
-  }
-};
-},{"./empty.js":54,"./html.js":55,"./jquery.js":57,"./json.js":58}],57:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.parse = parse;
-function parse(input) {
-  return input.val() || input.text() || input.html();
-}
-},{}],58:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = exports.parse = parseJSON;
-var _logger = _interopRequireDefault(require("../../logger.js"));
-function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
-const substituters = [[/((?:\[|:|,)\s*)'((?:\\'|[^'])*?[^\\])?'(?=\s*(?:\]|}|,))/g, '$1"$2"'], [/((?:(?:"|]|}|\/[gmiuys]|\.|(?:\d|\.|-)*\d)\s*,|{)\s*)(?:"([^":\n]+?)"|'([^":\n]+?)'|([^":\n]+?))(\s*):/g, '$1"$2$3$4"$5:']];
-function parseJSON(str) {
-  if (typeof str !== 'string') {
-    return JSON.parse(str);
-  }
-  try {
-    return JSON.parse(str);
-  } catch (e) {
-    _logger.default.debug('[plugin-common]', 'Invalid JSON, switching to experimental parser');
-    substituters.forEach(([regex, subst]) => {
-      str = str.replace(regex, subst);
-    });
-    return JSON.parse(str);
-  }
-}
-},{"../../logger.js":52}],59:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-var _json = _interopRequireDefault(require("./json.js"));
-var _label = _interopRequireDefault(require("./label.js"));
-function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
-var _default = exports.default = Object.assign({}, _json.default, _label.default);
-},{"./json.js":60,"./label.js":61}],60:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-var plugins = _interopRequireWildcard(require("../../plugins/index.js"));
-var util = _interopRequireWildcard(require("../../util/index.js"));
-var _logger = _interopRequireDefault(require("../../logger.js"));
-function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
-function _interopRequireWildcard(e, t) { if ("function" == typeof WeakMap) var r = new WeakMap(), n = new WeakMap(); return (_interopRequireWildcard = function (e, t) { if (!t && e && e.__esModule) return e; var o, i, f = { __proto__: null, default: e }; if (null === e || "object" != typeof e && "function" != typeof e) return f; if (o = t ? n : r) { if (o.has(e)) return o.get(e); o.set(e, f); } for (const t in e) "default" !== t && {}.hasOwnProperty.call(e, t) && ((i = (o = Object.defineProperty) && Object.getOwnPropertyDescriptor(e, t)) && (i.get || i.set) ? o(f, t, i) : f[t] = e[t]); return f; })(e, t); }
-function appendCommas(string, index, array) {
-  return string + (index < array.length - 1 ? ',' : '');
-}
-function getJsonObject(src, dict) {
-  const isArray = Array.isArray(src);
-  let entries;
-  if (isArray) {
-    entries = src.map(entry => getJsonValue(entry, dict));
-  } else {
-    entries = Object.keys(src).filter(prop => JSON.stringify(src[prop])).map(prop => `"${prop}": ${getJsonValue(src[prop], dict)}`);
-  }
-  entries = entries.map(appendCommas).map(entry => dict.listItem.join(entry));
-  entries = dict.list.join(entries.join(''));
-  return isArray ? `[${entries}]` : `{${entries}}`;
-}
-function getJsonValue(src, dict) {
-  if (typeof src === 'object' && src !== null) {
-    if (src.length === 0) {
-      return '[]';
-    } else if (Object.keys(src).length === 0) {
-      return '{}';
-    } else {
-      return getJsonObject(src, dict);
-    }
-  } else {
-    return JSON.stringify(src);
-  }
-}
-function getJson(src, dict) {
-  let entries = src.map(entry => getJsonObject(entry, dict));
-  entries = entries.map(appendCommas).map(entry => dict.entry.join(entry));
-  entries = entries.join('');
-  return dict.bibliographyContainer.join(`[${entries}]`);
-}
-var _default = exports.default = {
-  data(data, {
-    type,
-    format = type || 'text',
-    version = '1.0.2'
-  } = {}) {
-    if (version < '1.0.2') {
-      data = util.downgradeCsl(data);
-    }
-    if (format === 'object') {
-      return util.deepCopy(data);
-    } else if (format === 'text') {
-      return JSON.stringify(data, null, 2);
-    } else {
-      _logger.default.warn('[core]', 'This feature (JSON output with special formatting) is unstable. See https://github.com/larsgw/citation.js/issues/144');
-      return getJson(data, plugins.dict.get(format));
-    }
-  },
-  ndjson(data, {
-    version = '1.0.2'
-  } = {}) {
-    if (version < '1.0.2') {
-      data = util.downgradeCsl(data);
-    }
-    return data.map(entry => JSON.stringify(entry)).join('\n');
-  }
-};
-},{"../../logger.js":52,"../../plugins/index.js":64,"../../util/index.js":80}],61:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-exports.getLabel = getLabel;
-function getLabel(entry) {
-  if ('citation-label' in entry) {
-    return entry['citation-label'];
-  }
-  let res = '';
-  if (entry.author) {
-    res += entry.author[0].family || entry.author[0].literal;
-  }
-  if (entry.issued && entry.issued['date-parts'] && entry.issued['date-parts'][0]) {
-    res += entry.issued['date-parts'][0][0];
-  }
-  if (entry['year-suffix']) {
-    res += entry['year-suffix'];
-  } else if (entry.title) {
-    res += entry.title.replace(/<\/?.*?>/g, '').match(/^(?:(?:the|a|an)\s+)?(\S+)/i)[1];
-  }
-  return res;
-}
-var _default = exports.default = {
-  label(data) {
-    return data.reduce((object, entry) => {
-      object[entry.id] = getLabel(entry);
-      return object;
-    }, {});
-  }
-};
-},{}],62:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.add = add;
-exports.get = get;
-exports.has = has;
-exports.list = list;
-exports.remove = remove;
-const configs = {};
-function add(ref, config) {
-  configs[ref] = config;
-}
-function get(ref) {
-  return configs[ref];
-}
-function has(ref) {
-  return Object.prototype.hasOwnProperty.call(configs, ref);
-}
-function remove(ref) {
-  delete configs[ref];
-}
-function list() {
-  return Object.keys(configs);
-}
-},{}],63:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.add = add;
-exports.get = get;
-exports.has = has;
-exports.list = list;
-exports.register = void 0;
-exports.remove = remove;
-var _register = _interopRequireDefault(require("../util/register.js"));
-function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
-function validate(name, dict) {
-  if (typeof name !== 'string') {
-    throw new TypeError(`Invalid dict name, expected string, got ${typeof name}`);
-  } else if (typeof dict !== 'object') {
-    throw new TypeError(`Invalid dict, expected object, got ${typeof dict}`);
-  }
-  for (const entryName in dict) {
-    const entry = dict[entryName];
-    if (!Array.isArray(entry) || entry.some(part => typeof part !== 'string')) {
-      throw new TypeError(`Invalid dict entry "${entryName}", expected array of strings`);
-    }
-  }
-}
-const register = exports.register = new _register.default({
-  html: {
-    bibliographyContainer: ['<div class="csl-bib-body">', '</div>'],
-    entry: ['<div class="csl-entry">', '</div>'],
-    list: ['<ul style="list-style-type:none">', '</ul>'],
-    listItem: ['<li>', '</li>']
-  },
-  text: {
-    bibliographyContainer: ['', '\n'],
-    entry: ['', '\n'],
-    list: ['\n', ''],
-    listItem: ['\t', '\n']
-  }
-});
-function add(name, dict) {
-  validate(name, dict);
-  register.set(name, dict);
-}
-function remove(name) {
-  register.remove(name);
-}
-function has(name) {
-  return register.has(name);
-}
-function list() {
-  return register.list();
-}
-function get(name) {
-  if (!register.has(name)) {
-    throw new Error(`Dict "${name}" unavailable`);
-  }
-  return register.get(name);
-}
-},{"../util/register.js":81}],64:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.add = add;
-exports.dict = exports.config = void 0;
-exports.has = has;
-exports.input = void 0;
-exports.list = list;
-exports.output = void 0;
-exports.remove = remove;
-var input = _interopRequireWildcard(require("./input/index.js"));
-exports.input = input;
-var output = _interopRequireWildcard(require("./output.js"));
-exports.output = output;
-var dict = _interopRequireWildcard(require("./dict.js"));
-exports.dict = dict;
-var config = _interopRequireWildcard(require("./config.js"));
-exports.config = config;
-function _interopRequireWildcard(e, t) { if ("function" == typeof WeakMap) var r = new WeakMap(), n = new WeakMap(); return (_interopRequireWildcard = function (e, t) { if (!t && e && e.__esModule) return e; var o, i, f = { __proto__: null, default: e }; if (null === e || "object" != typeof e && "function" != typeof e) return f; if (o = t ? n : r) { if (o.has(e)) return o.get(e); o.set(e, f); } for (const t in e) "default" !== t && {}.hasOwnProperty.call(e, t) && ((i = (o = Object.defineProperty) && Object.getOwnPropertyDescriptor(e, t)) && (i.get || i.set) ? o(f, t, i) : f[t] = e[t]); return f; })(e, t); }
-const registers = {
-  input,
-  output,
-  dict,
-  config
-};
-const indices = {};
-function add(ref, plugins = {}) {
-  const mainIndex = indices[ref] = {};
-  for (const type in plugins) {
-    if (type === 'config') {
-      mainIndex.config = {
-        [ref]: plugins.config
-      };
-      registers.config.add(ref, plugins.config);
-      continue;
-    }
-    const typeIndex = mainIndex[type] = {};
-    const typePlugins = plugins[type];
-    for (const name in typePlugins) {
-      const typePlugin = typePlugins[name];
-      typeIndex[name] = true;
-      registers[type].add(name, typePlugin);
-    }
-  }
-}
-function remove(ref) {
-  const mainIndex = indices[ref];
-  for (const type in mainIndex) {
-    const typeIndex = mainIndex[type];
-    for (const name in typeIndex) {
-      registers[type].remove(name);
-    }
-  }
-  delete indices[ref];
-}
-function has(ref) {
-  return ref in indices;
-}
-function list() {
-  return Object.keys(indices);
-}
-},{"./config.js":62,"./dict.js":63,"./input/index.js":70,"./output.js":74}],65:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.chainLinkAsync = exports.chainLink = exports.chainAsync = exports.chain = void 0;
-var _index = require("../../util/index.js");
-var _logger = _interopRequireDefault(require("../../logger.js"));
-var _register = require("./register.js");
-var _type = require("./type.js");
-var _data = require("./data.js");
-var _graph = require("./graph.js");
-function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
-function prepareParseGraph(graph) {
-  return graph.reduce((array, next) => {
-    const last = array[array.length - 1];
-    if (last && last.type === next.type) {
-      last.count = last.count + 1 || 2;
-    } else {
-      array.push(next);
-    }
-    return array;
-  }, []).map(element => (element.count > 1 ? element.count + 'x ' : '') + element.type).join(' -> ');
-}
-class ChainParser {
-  constructor(input, options = {}) {
-    this.options = Object.assign({
-      generateGraph: true,
-      forceType: (0, _type.type)(input),
-      maxChainLength: 10,
-      strict: true,
-      target: '@csl/list+object'
-    }, options);
-    this.type = this.options.forceType;
-    this.data = typeof input === 'object' ? (0, _index.deepCopy)(input) : input;
-    this.graph = [{
-      type: this.type,
-      data: input
-    }];
-    this.iteration = 0;
-  }
-  iterate() {
-    if (this.iteration !== 0) {
-      const typeInfo = (0, _register.get)(this.type);
-      if (typeInfo && typeInfo.outputs) {
-        this.type = typeInfo.outputs;
-      } else {
-        this.type = (0, _type.type)(this.data);
-      }
-      this.graph.push({
-        type: this.type
-      });
-    }
-    if (this.error || this.type === this.options.target) {
-      return false;
-    } else if (this.iteration >= this.options.maxChainLength) {
-      this.error = new RangeError(`Max. number of parsing iterations reached (${prepareParseGraph(this.graph)})`);
-      return false;
-    } else {
-      this.iteration++;
-      return true;
-    }
-  }
-  end() {
-    if (this.error) {
-      _logger.default.error('[core]', this.error.message);
-      if (this.options.strict !== false) {
-        throw this.error;
-      } else {
-        return [];
-      }
-    } else if (this.options.target === '@csl/list+object') {
-      return (0, _index.upgradeCsl)(this.data).map(this.options.generateGraph ? entry => (0, _graph.applyGraph)(entry, this.graph) : _graph.removeGraph);
-    } else {
-      return this.data;
-    }
-  }
-}
-const chain = (...args) => {
-  const chain = new ChainParser(...args);
-  while (chain.iterate()) {
-    try {
-      chain.data = (0, _data.data)(chain.data, chain.type);
-    } catch (e) {
-      chain.error = e;
-    }
-  }
-  return chain.end();
-};
-exports.chain = chain;
-const chainLink = input => {
-  const type = (0, _type.type)(input);
-  const output = type.match(/array|object/) ? (0, _index.deepCopy)(input) : input;
-  return (0, _data.data)(output, type);
-};
-exports.chainLink = chainLink;
-const chainAsync = async (...args) => {
-  const chain = new ChainParser(...args);
-  while (chain.iterate()) {
-    chain.data = await (0, _data.dataAsync)(chain.data, chain.type).catch(e => {
-      chain.error = e;
-    });
-  }
-  return chain.end();
-};
-exports.chainAsync = chainAsync;
-const chainLinkAsync = async input => {
-  const type = (0, _type.type)(input);
-  const output = type.match(/array|object/) ? (0, _index.deepCopy)(input) : input;
-  return (0, _data.dataAsync)(output, type);
-};
-exports.chainLinkAsync = chainLinkAsync;
-},{"../../logger.js":52,"../../util/index.js":80,"./data.js":67,"./graph.js":69,"./register.js":72,"./type.js":73}],66:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.clean = parseCsl;
-var _name = require("@citation-js/name");
-function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
-function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
-function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
-function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == typeof i ? i : i + ""; }
-function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != typeof i) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
-const NAME = 1;
-const NAME_LIST = 2;
-const DATE = 3;
-const TYPE = 4;
-const entryTypes = {
-  article: true,
-  'article-journal': true,
-  'article-magazine': true,
-  'article-newspaper': true,
-  bill: true,
-  book: true,
-  broadcast: true,
-  chapter: true,
-  classic: true,
-  collection: true,
-  dataset: true,
-  document: true,
-  entry: true,
-  'entry-dictionary': true,
-  'entry-encyclopedia': true,
-  event: true,
-  figure: true,
-  graphic: true,
-  hearing: true,
-  interview: true,
-  legal_case: true,
-  legislation: true,
-  manuscript: true,
-  map: true,
-  motion_picture: true,
-  musical_score: true,
-  pamphlet: true,
-  'paper-conference': true,
-  patent: true,
-  performance: true,
-  periodical: true,
-  personal_communication: true,
-  post: true,
-  'post-weblog': true,
-  regulation: true,
-  report: true,
-  review: true,
-  'review-book': true,
-  software: true,
-  song: true,
-  speech: true,
-  standard: true,
-  thesis: true,
-  treaty: true,
-  webpage: true,
-  'journal-article': 'article-journal',
-  'book-chapter': 'chapter',
-  'posted-content': 'manuscript',
-  'proceedings-article': 'paper-conference',
-  dissertation: 'thesis'
-};
-const fieldTypes = {
-  author: NAME_LIST,
-  chair: NAME_LIST,
-  'collection-editor': NAME_LIST,
-  compiler: NAME_LIST,
-  composer: NAME_LIST,
-  'container-author': NAME_LIST,
-  contributor: NAME_LIST,
-  curator: NAME_LIST,
-  director: NAME_LIST,
-  editor: NAME_LIST,
-  'editorial-director': NAME_LIST,
-  'executive-producer': NAME_LIST,
-  guest: NAME_LIST,
-  host: NAME_LIST,
-  interviewer: NAME_LIST,
-  illustrator: NAME_LIST,
-  narrator: NAME_LIST,
-  organizer: NAME_LIST,
-  'original-author': NAME_LIST,
-  performer: NAME_LIST,
-  producer: NAME_LIST,
-  'reviewed-author': NAME_LIST,
-  recipient: NAME_LIST,
-  'script-writer': NAME_LIST,
-  'series-creator': NAME_LIST,
-  translator: NAME_LIST,
-  accessed: DATE,
-  'available-date': DATE,
-  container: DATE,
-  'event-date': DATE,
-  issued: DATE,
-  'original-date': DATE,
-  submitted: DATE,
-  type: TYPE,
-  categories: 'object',
-  custom: 'object',
-  id: ['string', 'number'],
-  language: 'string',
-  journalAbbreviation: 'string',
-  shortTitle: 'string',
-  abstract: 'string',
-  annote: 'string',
-  archive: 'string',
-  archive_collection: 'string',
-  archive_location: 'string',
-  'archive-place': 'string',
-  authority: 'string',
-  'call-number': 'string',
-  'chapter-number': 'string',
-  'citation-number': 'string',
-  'citation-key': 'string',
-  'citation-label': 'string',
-  'collection-number': 'string',
-  'collection-title': 'string',
-  'container-title': 'string',
-  'container-title-short': 'string',
-  dimensions: 'string',
-  division: 'string',
-  DOI: 'string',
-  edition: ['string', 'number'],
-  event: 'string',
-  'event-title': 'string',
-  'event-place': 'string',
-  'first-reference-note-number': 'string',
-  genre: 'string',
-  ISBN: 'string',
-  ISSN: 'string',
-  issue: ['string', 'number'],
-  jurisdiction: 'string',
-  keyword: 'string',
-  locator: 'string',
-  medium: 'string',
-  note: 'string',
-  number: ['string', 'number'],
-  'number-of-pages': 'string',
-  'number-of-volumes': ['string', 'number'],
-  'original-publisher': 'string',
-  'original-publisher-place': 'string',
-  'original-title': 'string',
-  page: 'string',
-  'page-first': 'string',
-  'part-number': ['string', 'number'],
-  'part-title': 'string',
-  PMCID: 'string',
-  PMID: 'string',
-  printing: 'string',
-  publisher: 'string',
-  'publisher-place': 'string',
-  references: 'string',
-  'reviewed-title': 'string',
-  'reviewed-genre': 'string',
-  scale: 'string',
-  section: 'string',
-  source: 'string',
-  status: 'string',
-  supplement: ['string', 'number'],
-  title: 'string',
-  'title-short': 'string',
-  URL: 'string',
-  version: 'string',
-  volume: ['string', 'number'],
-  'volume-title': 'string',
-  'volume-title-short': 'string',
-  'year-suffix': 'string'
-};
-function correctName(name, bestGuessConversions) {
-  if (typeof name === 'object' && name !== null && (name.literal || name.given || name.family)) {
-    if (name.ORCID || name.orcid || name._ORCID) {
-      name = _objectSpread({
-        _orcid: name.ORCID || name.orcid || name._ORCID
-      }, name);
-      delete name.ORCID;
-      delete name.orcid;
-      delete name._ORCID;
-    }
-    return name;
-  } else if (!bestGuessConversions) {
-    return undefined;
-  } else if (typeof name === 'string') {
-    return (0, _name.parse)(name);
-  }
-}
-function correctNameList(nameList, bestGuessConversions) {
-  if (nameList instanceof Array) {
-    const names = nameList.map(name => correctName(name, bestGuessConversions)).filter(Boolean);
-    return names.length ? names : undefined;
-  }
-}
-function correctDateParts(dateParts, bestGuessConversions) {
-  if (dateParts.every(part => typeof part === 'number')) {
-    return dateParts;
-  } else if (!bestGuessConversions || dateParts.some(part => isNaN(parseInt(part)))) {
-    return undefined;
-  } else {
-    return dateParts.map(part => parseInt(part));
-  }
-}
-function correctDate(date, bestGuessConversions) {
-  const dp = 'date-parts';
-  if (typeof date !== 'object' || date === null) {
-    return undefined;
-  } else if (date[dp] instanceof Array && date[dp].every(part => part instanceof Array)) {
-    const range = date[dp].map(dateParts => correctDateParts(dateParts, bestGuessConversions)).filter(Boolean);
-    return range.length ? _objectSpread(_objectSpread({}, date), {}, {
-      'date-parts': range
-    }) : undefined;
-  } else if (date instanceof Array && date.every(part => part[dp] instanceof Array)) {
-    const range = date.map(dateParts => correctDateParts(dateParts[dp], bestGuessConversions)).filter(Boolean);
-    return range.length ? {
-      'date-parts': range
-    } : undefined;
-  } else if (date[dp] instanceof Array) {
-    const dateParts = correctDateParts(date[dp], bestGuessConversions);
-    return dateParts && {
-      'date-parts': [dateParts]
-    };
-  } else if ('literal' in date || 'raw' in date) {
-    return date;
-  }
-}
-function correctType(type, bestGuessConversions) {
-  type = correctField('language', type, bestGuessConversions);
-  if (entryTypes[type] === true) {
-    return type;
-  }
-  if (bestGuessConversions) {
-    if (type in entryTypes) {
-      return entryTypes[type];
-    } else if (typeof type === 'string' && type.toLowerCase() !== type) {
-      return correctType(type.toLowerCase(), bestGuessConversions);
-    }
-  }
-  return undefined;
-}
-function correctField(fieldName, value, bestGuessConversions) {
-  const fieldType = [].concat(fieldTypes[fieldName]);
-  switch (fieldTypes[fieldName]) {
-    case NAME:
-      return correctName(value, bestGuessConversions);
-    case NAME_LIST:
-      return correctNameList(value, bestGuessConversions);
-    case DATE:
-      return correctDate(value, bestGuessConversions);
-    case TYPE:
-      return correctType(value, bestGuessConversions);
-  }
-  if (bestGuessConversions) {
-    if (typeof value === 'string' && fieldType.includes('number') && !fieldType.includes('string') && !isNaN(+value)) {
-      return parseFloat(value);
-    } else if (typeof value === 'number' && fieldType.includes('string') && !fieldType.includes('number')) {
-      return value.toString();
-    } else if (Array.isArray(value) && value.length) {
-      return correctField(fieldName, value[0], bestGuessConversions);
-    }
-  }
-  if (fieldType.includes(typeof value)) {
-    return value;
-  }
-}
-function parseCsl(data, bestGuessConversions = true) {
-  return data.map(function (entry) {
-    const clean = {};
-    for (const field in entry) {
-      const correction = correctField(field, entry[field], bestGuessConversions);
-      if (correction !== undefined) {
-        clean[field] = correction;
-      }
-    }
-    return clean;
-  });
-}
-},{"@citation-js/name":88}],67:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.addDataParser = addDataParser;
-exports.data = data;
-exports.dataAsync = dataAsync;
-exports.hasDataParser = hasDataParser;
-exports.listDataParser = listDataParser;
-exports.removeDataParser = removeDataParser;
-var _type = require("./type.js");
-const parsers = {};
-const asyncParsers = {};
-const nativeParsers = {
-  '@csl/object': input => [input],
-  '@csl/list+object': input => input,
-  '@else/list+object': input => input.map(item => {
-    const type = (0, _type.type)(item);
-    return data(item, type);
-  }).flat(),
-  '@invalid': () => {
-    throw new Error('This format is not supported or recognized');
-  }
-};
-const nativeAsyncParsers = {
-  '@else/list+object': input => Promise.all(input.map(item => {
-    const type = (0, _type.type)(item);
-    return dataAsync(item, type);
-  })).then(input => input.flat())
-};
-function data(input, type) {
-  if (typeof parsers[type] === 'function') {
-    return parsers[type](input);
-  } else if (typeof nativeParsers[type] === 'function') {
-    return nativeParsers[type](input);
-  } else {
-    throw new TypeError(`No synchronous parser found for ${type}`);
-  }
-}
-async function dataAsync(input, type) {
-  if (typeof asyncParsers[type] === 'function') {
-    return asyncParsers[type](input);
-  } else if (typeof nativeAsyncParsers[type] === 'function') {
-    return nativeAsyncParsers[type](input);
-  } else if (hasDataParser(type, false)) {
-    return data(input, type);
-  } else {
-    throw new TypeError(`No parser found for ${type}`);
-  }
-}
-function addDataParser(format, {
-  parser,
-  async
-}) {
-  if (async) {
-    asyncParsers[format] = parser;
-  } else {
-    parsers[format] = parser;
-  }
-}
-function hasDataParser(type, async) {
-  return async ? asyncParsers[type] || nativeAsyncParsers[type] : parsers[type] || nativeParsers[type];
-}
-function removeDataParser(type, async) {
-  delete (async ? asyncParsers : parsers)[type];
-}
-function listDataParser(async) {
-  return Object.keys(async ? asyncParsers : parsers);
-}
-},{"./type.js":73}],68:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.dataTypeOf = dataTypeOf;
-exports.typeOf = typeOf;
-function typeOf(thing) {
-  switch (thing) {
-    case undefined:
-      return 'Undefined';
-    case null:
-      return 'Null';
-    default:
-      return thing.constructor.name;
-  }
-}
-function dataTypeOf(thing) {
-  switch (typeof thing) {
-    case 'string':
-      return 'String';
-    case 'object':
-      if (Array.isArray(thing)) {
-        return 'Array';
-      } else if (typeOf(thing) === 'Object') {
-        return 'SimpleObject';
-      } else if (typeOf(thing) !== 'Null') {
-        return 'ComplexObject';
-      }
-    default:
-      return 'Primitive';
-  }
-}
-},{}],69:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.applyGraph = applyGraph;
-exports.removeGraph = removeGraph;
-function applyGraph(entry, graph) {
-  if (entry._graph) {
-    const index = graph.findIndex(({
-      type
-    }) => type === '@else/list+object');
-    if (index !== -1) {
-      graph.splice(index + 1, 0, ...entry._graph.slice(0, -1));
-    }
-  }
-  entry._graph = graph;
-  return entry;
-}
-function removeGraph(entry) {
-  delete entry._graph;
-  return entry;
-}
-},{}],70:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var _exportNames = {
-  util: true
-};
-exports.util = void 0;
-var dataType = _interopRequireWildcard(require("./dataType.js"));
-var graph = _interopRequireWildcard(require("./graph.js"));
-var parser = _interopRequireWildcard(require("./parser.js"));
-var csl = _interopRequireWildcard(require("./csl.js"));
-var _register = require("./register");
-Object.keys(_register).forEach(function (key) {
-  if (key === "default" || key === "__esModule") return;
-  if (Object.prototype.hasOwnProperty.call(_exportNames, key)) return;
-  if (key in exports && exports[key] === _register[key]) return;
-  Object.defineProperty(exports, key, {
-    enumerable: true,
-    get: function () {
-      return _register[key];
-    }
-  });
-});
-var _chain = require("./chain");
-Object.keys(_chain).forEach(function (key) {
-  if (key === "default" || key === "__esModule") return;
-  if (Object.prototype.hasOwnProperty.call(_exportNames, key)) return;
-  if (key in exports && exports[key] === _chain[key]) return;
-  Object.defineProperty(exports, key, {
-    enumerable: true,
-    get: function () {
-      return _chain[key];
-    }
-  });
-});
-var _type = require("./type");
-Object.keys(_type).forEach(function (key) {
-  if (key === "default" || key === "__esModule") return;
-  if (Object.prototype.hasOwnProperty.call(_exportNames, key)) return;
-  if (key in exports && exports[key] === _type[key]) return;
-  Object.defineProperty(exports, key, {
-    enumerable: true,
-    get: function () {
-      return _type[key];
-    }
-  });
-});
-var _data = require("./data");
-Object.keys(_data).forEach(function (key) {
-  if (key === "default" || key === "__esModule") return;
-  if (Object.prototype.hasOwnProperty.call(_exportNames, key)) return;
-  if (key in exports && exports[key] === _data[key]) return;
-  Object.defineProperty(exports, key, {
-    enumerable: true,
-    get: function () {
-      return _data[key];
-    }
-  });
-});
-function _interopRequireWildcard(e, t) { if ("function" == typeof WeakMap) var r = new WeakMap(), n = new WeakMap(); return (_interopRequireWildcard = function (e, t) { if (!t && e && e.__esModule) return e; var o, i, f = { __proto__: null, default: e }; if (null === e || "object" != typeof e && "function" != typeof e) return f; if (o = t ? n : r) { if (o.has(e)) return o.get(e); o.set(e, f); } for (const t in e) "default" !== t && {}.hasOwnProperty.call(e, t) && ((i = (o = Object.defineProperty) && Object.getOwnPropertyDescriptor(e, t)) && (i.get || i.set) ? o(f, t, i) : f[t] = e[t]); return f; })(e, t); }
-const util = exports.util = Object.assign({}, dataType, graph, parser, csl);
-},{"./chain":65,"./csl.js":66,"./data":67,"./dataType.js":68,"./graph.js":69,"./parser.js":71,"./register":72,"./type":73}],71:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.TypeParser = exports.FormatParser = exports.DataParser = void 0;
-var _type = require("./type.js");
-function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
-function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == typeof i ? i : i + ""; }
-function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != typeof i) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
-class TypeParser {
-  constructor(data) {
-    _defineProperty(this, "validDataTypes", ['String', 'Array', 'SimpleObject', 'ComplexObject', 'Primitive']);
-    this.data = data;
-  }
-  validateDataType() {
-    const dataType = this.data.dataType;
-    if (dataType && !this.validDataTypes.includes(dataType)) {
-      throw new RangeError(`dataType was ${dataType}; expected one of ${this.validDataTypes}`);
-    }
-  }
-  validateParseType() {
-    const predicate = this.data.predicate;
-    if (predicate && !(predicate instanceof RegExp || typeof predicate === 'function')) {
-      throw new TypeError(`predicate was ${typeof predicate}; expected RegExp or function`);
-    }
-  }
-  validateTokenList() {
-    const tokenList = this.data.tokenList;
-    if (tokenList && typeof tokenList !== 'object') {
-      throw new TypeError(`tokenList was ${typeof tokenList}; expected object or RegExp`);
-    }
-  }
-  validatePropertyConstraint() {
-    const propertyConstraint = this.data.propertyConstraint;
-    if (propertyConstraint && typeof propertyConstraint !== 'object') {
-      throw new TypeError(`propertyConstraint was ${typeof propertyConstraint}; expected array or object`);
-    }
-  }
-  validateElementConstraint() {
-    const elementConstraint = this.data.elementConstraint;
-    if (elementConstraint && typeof elementConstraint !== 'string') {
-      throw new TypeError(`elementConstraint was ${typeof elementConstraint}; expected string`);
-    }
-  }
-  validateExtends() {
-    const extend = this.data.extends;
-    if (extend && typeof extend !== 'string') {
-      throw new TypeError(`extends was ${typeof extend}; expected string`);
-    }
-  }
-  validate() {
-    if (this.data === null || typeof this.data !== 'object') {
-      throw new TypeError(`typeParser was ${typeof this.data}; expected object`);
-    }
-    this.validateDataType();
-    this.validateParseType();
-    this.validateTokenList();
-    this.validatePropertyConstraint();
-    this.validateElementConstraint();
-    this.validateExtends();
-  }
-  parseTokenList() {
-    let tokenList = this.data.tokenList;
-    if (!tokenList) {
-      return [];
-    } else if (tokenList instanceof RegExp) {
-      tokenList = {
-        token: tokenList
-      };
-    }
-    const {
-      token,
-      split = /\s+/,
-      trim = true,
-      every = true
-    } = tokenList;
-    const trimInput = input => trim ? input.trim() : input;
-    const testTokens = every ? 'every' : 'some';
-    const predicate = input => trimInput(input).split(split)[testTokens](part => token.test(part));
-    return [predicate];
-  }
-  parsePropertyConstraint() {
-    const constraints = [].concat(this.data.propertyConstraint || []);
-    return constraints.map(({
-      props,
-      match,
-      value
-    }) => {
-      props = [].concat(props);
-      switch (match) {
-        case 'any':
-        case 'some':
-          return input => props.some(prop => prop in input && (!value || value(input[prop])));
-        case 'none':
-          return input => !props.some(prop => prop in input && (!value || value(input[prop])));
-        case 'every':
-        default:
-          return input => props.every(prop => prop in input && (!value || value(input[prop])));
-      }
-    });
-  }
-  parseElementConstraint() {
-    const constraint = this.data.elementConstraint;
-    return !constraint ? [] : [input => input.every(entry => (0, _type.type)(entry) === constraint)];
-  }
-  parsePredicate() {
-    if (this.data.predicate instanceof RegExp) {
-      return [this.data.predicate.test.bind(this.data.predicate)];
-    } else if (this.data.predicate) {
-      return [this.data.predicate];
-    } else {
-      return [];
-    }
-  }
-  getCombinedPredicate() {
-    const predicates = [...this.parsePredicate(), ...this.parseTokenList(), ...this.parsePropertyConstraint(), ...this.parseElementConstraint()];
-    if (predicates.length === 0) {
-      return () => true;
-    } else if (predicates.length === 1) {
-      return predicates[0];
-    } else {
-      return input => predicates.every(predicate => predicate(input));
-    }
-  }
-  getDataType() {
-    if (this.data.dataType) {
-      return this.data.dataType;
-    } else if (this.data.predicate instanceof RegExp) {
-      return 'String';
-    } else if (this.data.tokenList) {
-      return 'String';
-    } else if (this.data.elementConstraint) {
-      return 'Array';
-    } else {
-      return 'Primitive';
-    }
-  }
-  get dataType() {
-    return this.getDataType();
-  }
-  get predicate() {
-    return this.getCombinedPredicate();
-  }
-  get extends() {
-    return this.data.extends;
-  }
-}
-exports.TypeParser = TypeParser;
-class DataParser {
-  constructor(parser, {
-    async
-  } = {}) {
-    this.parser = parser;
-    this.async = async;
-  }
-  validate() {
-    const parser = this.parser;
-    if (typeof parser !== 'function') {
-      throw new TypeError(`parser was ${typeof parser}; expected function`);
-    }
-  }
-}
-exports.DataParser = DataParser;
-class FormatParser {
-  constructor(format, parsers = {}) {
-    this.format = format;
-    if (parsers.parseType) {
-      this.typeParser = new TypeParser(parsers.parseType);
-    }
-    if (parsers.parse) {
-      this.dataParser = new DataParser(parsers.parse, {
-        async: false
-      });
-    }
-    if (parsers.parseAsync) {
-      this.asyncDataParser = new DataParser(parsers.parseAsync, {
-        async: true
-      });
-    }
-  }
-  validateFormat() {
-    const format = this.format;
-    if (!_type.typeMatcher.test(format)) {
-      throw new TypeError(`format name was "${format}"; didn't match expected pattern`);
-    }
-  }
-  validate() {
-    this.validateFormat();
-    if (this.typeParser) {
-      this.typeParser.validate();
-    }
-    if (this.dataParser) {
-      this.dataParser.validate();
-    }
-    if (this.asyncDataParser) {
-      this.asyncDataParser.validate();
-    }
-  }
-}
-exports.FormatParser = FormatParser;
-},{"./type.js":73}],72:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.add = add;
-exports.get = get;
-exports.has = has;
-exports.list = list;
-exports.remove = remove;
-var _parser = require("./parser.js");
-var _type = require("./type.js");
-var _data = require("./data.js");
-const formats = {};
-function add(format, parsers) {
-  const formatParser = new _parser.FormatParser(format, parsers);
-  formatParser.validate();
-  const index = formats[format] || (formats[format] = {});
-  if (formatParser.typeParser) {
-    (0, _type.addTypeParser)(format, formatParser.typeParser);
-    index.type = true;
-  }
-  if (formatParser.dataParser) {
-    (0, _data.addDataParser)(format, formatParser.dataParser);
-    index.data = true;
-  }
-  if (formatParser.asyncDataParser) {
-    (0, _data.addDataParser)(format, formatParser.asyncDataParser);
-    index.asyncData = true;
-  }
-  if (parsers.outputs) {
-    index.outputs = parsers.outputs;
-  }
-}
-function get(format) {
-  return formats[format];
-}
-function remove(format) {
-  const index = formats[format];
-  if (!index) {
-    return;
-  }
-  if (index.type) {
-    (0, _type.removeTypeParser)(format);
-  }
-  if (index.data) {
-    (0, _data.removeDataParser)(format);
-  }
-  if (index.asyncData) {
-    (0, _data.removeDataParser)(format, true);
-  }
-  delete formats[format];
-}
-function has(format) {
-  return format in formats;
-}
-function list() {
-  return Object.keys(formats);
-}
-},{"./data.js":67,"./parser.js":71,"./type.js":73}],73:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.addTypeParser = addTypeParser;
-exports.hasTypeParser = hasTypeParser;
-exports.listTypeParser = listTypeParser;
-exports.removeTypeParser = removeTypeParser;
-exports.treeTypeParser = treeTypeParser;
-exports.type = type;
-exports.typeMatcher = void 0;
-var _logger = _interopRequireDefault(require("../../logger.js"));
-var _dataType = require("./dataType.js");
-function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
-const types = {};
-const dataTypes = {};
-const unregExts = {};
-function parseNativeTypes(input, dataType) {
-  switch (dataType) {
-    case 'Array':
-      if (input.length === 0 || input.every(entry => type(entry) === '@csl/object')) {
-        return '@csl/list+object';
-      } else {
-        return '@else/list+object';
-      }
-    case 'SimpleObject':
-    case 'ComplexObject':
-      return '@csl/object';
-    default:
-      return '@invalid';
-  }
-}
-function matchType(typeList = [], data) {
-  for (const type of typeList) {
-    if (types[type].predicate(data)) {
-      return matchType(types[type].extensions, data) || type;
-    }
-  }
-}
-function type(input) {
-  const dataType = (0, _dataType.dataTypeOf)(input);
-  if (dataType === 'Array' && input.length === 0) {
-    return parseNativeTypes(input, dataType);
-  }
-  const match = matchType(dataTypes[dataType], input);
-  return match || parseNativeTypes(input, dataType);
-}
-function addTypeParser(format, {
-  dataType,
-  predicate,
-  extends: extend
-}) {
-  let extensions = [];
-  if (format in unregExts) {
-    extensions = unregExts[format];
-    delete unregExts[format];
-    _logger.default.debug('[core]', `Subclasses "${extensions}" finally registered to parent type "${format}"`);
-  }
-  const object = {
-    predicate,
-    extensions
-  };
-  types[format] = object;
-  if (extend) {
-    const parentTypeParser = types[extend];
-    if (parentTypeParser) {
-      parentTypeParser.extensions.push(format);
-    } else {
-      if (!unregExts[extend]) {
-        unregExts[extend] = [];
-      }
-      unregExts[extend].push(format);
-      _logger.default.debug('[core]', `Subclass "${format}" is waiting on parent type "${extend}"`);
-    }
-  } else {
-    const typeList = dataTypes[dataType] || (dataTypes[dataType] = []);
-    typeList.push(format);
-  }
-}
-function hasTypeParser(type) {
-  return Object.prototype.hasOwnProperty.call(types, type);
-}
-function removeTypeParser(type) {
-  delete types[type];
-  const typeLists = [...Object.keys(dataTypes).map(key => dataTypes[key]), ...Object.keys(types).map(type => types[type].extensions).filter(list => list.length > 0)];
-  typeLists.forEach(typeList => {
-    const index = typeList.indexOf(type);
-    if (index > -1) {
-      typeList.splice(index, 1);
-    }
-  });
-}
-function listTypeParser() {
-  return Object.keys(types);
-}
-function treeTypeParser() {
-  const attachNode = name => ({
-    name,
-    children: types[name].extensions.map(attachNode)
-  });
-  return {
-    name: 'Type tree',
-    children: Object.keys(dataTypes).map(name => ({
-      name,
-      children: dataTypes[name].map(attachNode)
-    }))
-  };
-}
-const typeMatcher = exports.typeMatcher = /^(?:@(.+?))(?:\/(?:(.+?)\+)?(?:(.+)))?$/;
-},{"../../logger.js":52,"./dataType.js":68}],74:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.add = add;
-exports.format = format;
-exports.has = has;
-exports.list = list;
-exports.register = void 0;
-exports.remove = remove;
-var _register = _interopRequireDefault(require("../util/register.js"));
-function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
-function validate(name, formatter) {
-  if (typeof name !== 'string') {
-    throw new TypeError(`Invalid output format name, expected string, got ${typeof name}`);
-  } else if (typeof formatter !== 'function') {
-    throw new TypeError(`Invalid formatter, expected function, got ${typeof formatter}`);
-  }
-}
-const register = exports.register = new _register.default();
-function add(name, formatter) {
-  validate(name, formatter);
-  register.set(name, formatter);
-}
-function remove(name) {
-  register.remove(name);
-}
-function has(name) {
-  return register.has(name);
-}
-function list() {
-  return register.list();
-}
-function format(name, data, ...options) {
-  if (!register.has(name)) {
-    throw new Error(`Output format "${name}" unavailable`);
-  }
-  return register.get(name)(data, ...options);
-}
-},{"../util/register.js":81}],75:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.downgradeCsl = downgradeCsl;
-exports.upgradeCsl = upgradeCsl;
-function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
-function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
-function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
-function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == typeof i ? i : i + ""; }
-function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != typeof i) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
-function upgradeCsl(item) {
-  if (Array.isArray(item)) {
-    return item.map(upgradeCsl);
-  }
-  item = _objectSpread({}, item);
-  if ('event' in item) {
-    item['event-title'] = item.event;
-    delete item.event;
-  }
-  if (item.type === 'book' && 'version' in item) {
-    item.type = 'software';
-  }
-  return item;
-}
-function downgradeCsl(item) {
-  if (Array.isArray(item)) {
-    return item.map(downgradeCsl);
-  }
-  item = _objectSpread({}, item);
-  if ('event-title' in item) {
-    item.event = item['event-title'];
-    delete item['event-title'];
-  }
-  if (item.type === 'software') {
-    item.type = 'book';
-  }
-  return item;
-}
-},{}],76:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.deepCopy = deepCopy;
-exports.default = void 0;
-function deepCopy(value, seen = new Set()) {
-  if (typeof value !== 'object' || value === null || value.constructor !== Object && value.constructor !== Array) {
-    return value;
-  }
-  if (seen.has(value)) {
-    throw new TypeError('Recursively copying circular structure');
-  }
-  seen.add(value);
-  let copy;
-  if (value.constructor === Array) {
-    copy = value.map(value => deepCopy(value, seen));
-  } else {
-    const object = {};
-    for (const key in value) {
-      object[key] = deepCopy(value[key], seen);
-    }
-    copy = object;
-  }
-  seen.delete(value);
-  return copy;
-}
-var _default = exports.default = deepCopy;
-},{}],77:[function(require,module,exports){
-(function (process){(function (){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-exports.fetchFile = fetchFile;
-exports.fetchFileAsync = fetchFileAsync;
-exports.setUserAgent = setUserAgent;
-var _syncFetch = _interopRequireDefault(require("sync-fetch"));
-var _nodeFetch = _interopRequireWildcard(require("node-fetch"));
-var _logger = _interopRequireDefault(require("../logger.js"));
-var _package = _interopRequireDefault(require("../../package.json"));
-function _interopRequireWildcard(e, t) { if ("function" == typeof WeakMap) var r = new WeakMap(), n = new WeakMap(); return (_interopRequireWildcard = function (e, t) { if (!t && e && e.__esModule) return e; var o, i, f = { __proto__: null, default: e }; if (null === e || "object" != typeof e && "function" != typeof e) return f; if (o = t ? n : r) { if (o.has(e)) return o.get(e); o.set(e, f); } for (const t in e) "default" !== t && {}.hasOwnProperty.call(e, t) && ((i = (o = Object.defineProperty) && Object.getOwnPropertyDescriptor(e, t)) && (i.get || i.set) ? o(f, t, i) : f[t] = e[t]); return f; })(e, t); }
-function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
-const isBrowser = typeof location !== 'undefined' && typeof navigator !== 'undefined';
-const asyncFetch = isBrowser ? fetch : _nodeFetch.default;
-const asyncHeaders = isBrowser ? Headers : _nodeFetch.Headers;
-let userAgent = `Citation.js/${_package.default.version}`;
-if (typeof process !== 'undefined' && process && process.release && process.release.name === 'node' && process.version) {
-  userAgent += ` Node.js/${process.version}`;
-}
-function normaliseHeaders(headers) {
-  const result = {};
-  const entries = headers instanceof asyncHeaders || headers instanceof _syncFetch.default.Headers ? Array.from(headers) : Object.entries(headers);
-  for (const [name, header] of entries) {
-    result[name.toLowerCase()] = header.toString();
-  }
-  return result;
-}
-function parseOpts(opts = {}) {
-  const reqOpts = {
-    headers: {
-      accept: '*/*'
-    },
-    method: 'GET',
-    checkContentType: opts.checkContentType
-  };
-  if (userAgent && !isBrowser) {
-    reqOpts.headers['user-agent'] = userAgent;
-  }
-  if (opts.body) {
-    reqOpts.method = 'POST';
-    const isJson = typeof opts.body !== 'string';
-    reqOpts.body = isJson ? JSON.stringify(opts.body) : opts.body;
-    reqOpts.headers['content-type'] = isJson ? 'application/json' : 'text/plain';
-  }
-  if (opts.headers) {
-    Object.assign(reqOpts.headers, normaliseHeaders(opts.headers));
-  }
-  return reqOpts;
-}
-function sameType(request, response) {
-  if (!request.accept || request.accept === '*/*' || !response['content-type']) {
-    return true;
-  }
-  const [a, b] = response['content-type'].split(';')[0].trim().split('/');
-  return request.accept.split(',').map(type => type.split(';')[0].trim().split('/')).some(([c, d]) => (c === a || c === '*') && (d === b || d === '*'));
-}
-function checkResponse(response, opts) {
-  const {
-    status,
-    headers
-  } = response;
-  let error;
-  if (status >= 400) {
-    error = new Error(`Server responded with status code ${status}`);
-  } else if (opts.checkContentType === true && !sameType(opts.headers, normaliseHeaders(headers))) {
-    error = new Error(`Server responded with content-type ${headers.get('content-type')}`);
-  }
-  if (error) {
-    error.status = status;
-    error.headers = headers;
-    error.body = response.body;
-    throw error;
-  }
-  return response;
-}
-function fetchFile(url, opts) {
-  const reqOpts = parseOpts(opts);
-  _logger.default.http('[core]', reqOpts.method, url, reqOpts);
-  const response = checkResponse((0, _syncFetch.default)(url, reqOpts), reqOpts);
-  return response.text();
-}
-async function fetchFileAsync(url, opts) {
-  const reqOpts = parseOpts(opts);
-  _logger.default.http('[core]', reqOpts.method, url, reqOpts);
-  return asyncFetch(url, reqOpts).then(response => checkResponse(response, reqOpts)).then(response => response.text());
-}
-function setUserAgent(newUserAgent) {
-  userAgent = newUserAgent;
-}
-var _default = exports.default = fetchFile;
-}).call(this)}).call(this,require('_process'))
-},{"../../package.json":84,"../logger.js":52,"_process":143,"node-fetch":140,"sync-fetch":144}],78:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-function fetchId(list, prefix) {
-  let id;
-  while (id === undefined || list.includes(id)) {
-    id = `${prefix}${Math.random().toString().slice(2)}`;
-  }
-  return id;
-}
-var _default = exports.default = fetchId;
-},{}],79:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.Grammar = void 0;
-var _deepCopy = require("./deepCopy.js");
-class Grammar {
-  constructor(rules, state) {
-    this.rules = rules;
-    this.defaultState = state;
-    this.mainRule = Object.keys(rules)[0];
-    this.log = [];
-  }
-  parse(iterator, mainRule) {
-    this.lexer = iterator;
-    this.token = this.lexer.next();
-    this.state = (0, _deepCopy.deepCopy)(this.defaultState);
-    this.log = [];
-    return this.consumeRule(mainRule || this.mainRule);
-  }
-  matchEndOfFile() {
-    return !this.token;
-  }
-  matchToken(type) {
-    return this.token && type === this.token.type;
-  }
-  consumeToken(type, optional) {
-    const token = this.token;
-    if (!type || token && token.type === type) {
-      this.token = this.lexer.next();
-      return token;
-    } else if (optional) {
-      return undefined;
-    } else {
-      const got = token ? `"${token.type}"` : 'EOF';
-      const error = new SyntaxError(this.lexer.formatError(token, `expected "${type}", got ${got}`));
-      error.message += ` (${this.log.join('->')})`;
-      throw error;
-    }
-  }
-  consumeRule(rule) {
-    this.log.push(rule);
-    const result = this.rules[rule].call(this);
-    this.log.pop();
-    return result;
-  }
-}
-exports.Grammar = Grammar;
-},{"./deepCopy.js":76}],80:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-Object.defineProperty(exports, "Grammar", {
-  enumerable: true,
-  get: function () {
-    return _grammar.Grammar;
-  }
-});
-Object.defineProperty(exports, "Register", {
-  enumerable: true,
-  get: function () {
-    return _register.default;
-  }
-});
-Object.defineProperty(exports, "TokenStack", {
-  enumerable: true,
-  get: function () {
-    return _stack.default;
-  }
-});
-Object.defineProperty(exports, "Translator", {
-  enumerable: true,
-  get: function () {
-    return _translator.Translator;
-  }
-});
-Object.defineProperty(exports, "deepCopy", {
-  enumerable: true,
-  get: function () {
-    return _deepCopy.default;
-  }
-});
-Object.defineProperty(exports, "downgradeCsl", {
-  enumerable: true,
-  get: function () {
-    return _csl.downgradeCsl;
-  }
-});
-Object.defineProperty(exports, "fetchFile", {
-  enumerable: true,
-  get: function () {
-    return _fetchFile.fetchFile;
-  }
-});
-Object.defineProperty(exports, "fetchFileAsync", {
-  enumerable: true,
-  get: function () {
-    return _fetchFile.fetchFileAsync;
-  }
-});
-Object.defineProperty(exports, "fetchId", {
-  enumerable: true,
-  get: function () {
-    return _fetchId.default;
-  }
-});
-Object.defineProperty(exports, "setUserAgent", {
-  enumerable: true,
-  get: function () {
-    return _fetchFile.setUserAgent;
-  }
-});
-Object.defineProperty(exports, "upgradeCsl", {
-  enumerable: true,
-  get: function () {
-    return _csl.upgradeCsl;
-  }
-});
-var _csl = require("./csl.js");
-var _deepCopy = _interopRequireDefault(require("./deepCopy.js"));
-var _fetchFile = require("./fetchFile.js");
-var _fetchId = _interopRequireDefault(require("./fetchId.js"));
-var _stack = _interopRequireDefault(require("./stack.js"));
-var _register = _interopRequireDefault(require("./register.js"));
-var _grammar = require("./grammar.js");
-var _translator = require("./translator.js");
-function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
-},{"./csl.js":75,"./deepCopy.js":76,"./fetchFile.js":77,"./fetchId.js":78,"./grammar.js":79,"./register.js":81,"./stack.js":82,"./translator.js":83}],81:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-class Register {
-  constructor(data = {}) {
-    this.data = data;
-  }
-  set(key, value) {
-    this.data[key] = value;
-    return this;
-  }
-  add(...args) {
-    return this.set(...args);
-  }
-  delete(key) {
-    delete this.data[key];
-    return this;
-  }
-  remove(...args) {
-    return this.delete(...args);
-  }
-  get(key) {
-    return this.data[key];
-  }
-  has(key) {
-    return Object.prototype.hasOwnProperty.call(this.data, key);
-  }
-  list() {
-    return Object.keys(this.data);
-  }
-}
-var _default = exports.default = Register;
-},{}],82:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-class TokenStack {
-  constructor(array) {
-    this.stack = array;
-    this.index = 0;
-    this.current = this.stack[this.index];
-  }
-  static getPatternText(pattern) {
-    return `"${pattern instanceof RegExp ? pattern.source : pattern}"`;
-  }
-  static getMatchCallback(pattern) {
-    if (Array.isArray(pattern)) {
-      const matches = pattern.map(TokenStack.getMatchCallback);
-      return token => matches.some(matchCallback => matchCallback(token));
-    } else if (pattern instanceof Function) {
-      return pattern;
-    } else if (pattern instanceof RegExp) {
-      return token => pattern.test(token);
-    } else {
-      return token => pattern === token;
-    }
-  }
-  tokensLeft() {
-    return this.stack.length - this.index;
-  }
-  matches(pattern) {
-    return TokenStack.getMatchCallback(pattern)(this.current, this.index, this.stack);
-  }
-  matchesSequence(sequence) {
-    const part = this.stack.slice(this.index, this.index + sequence.length).join('');
-    return typeof sequence === 'string' ? part === sequence : sequence.every((pattern, index) => TokenStack.getMatchCallback(pattern)(part[index]));
-  }
-  consumeToken(pattern = /^[\s\S]$/, {
-    inverse = false,
-    spaced = true
-  } = {}) {
-    if (spaced) {
-      this.consumeWhitespace();
-    }
-    const token = this.current;
-    const match = TokenStack.getMatchCallback(pattern)(token, this.index, this.stack);
-    if (match) {
-      this.current = this.stack[++this.index];
-    } else {
-      throw new SyntaxError(`Unexpected token at index ${this.index}: Expected ${TokenStack.getPatternText(pattern)}, got "${token}"`);
-    }
-    if (spaced) {
-      this.consumeWhitespace();
-    }
-    return token;
-  }
-  consumeWhitespace(pattern = /^\s$/, {
-    optional = true
-  } = {}) {
-    return this.consume(pattern, {
-      min: +!optional
-    });
-  }
-  consumeN(length) {
-    if (this.tokensLeft() < length) {
-      throw new SyntaxError('Not enough tokens left');
-    }
-    const start = this.index;
-    while (length--) {
-      this.current = this.stack[++this.index];
-    }
-    return this.stack.slice(start, this.index).join('');
-  }
-  consumeSequence(sequence) {
-    if (this.matchesSequence(sequence)) {
-      return this.consumeN(sequence.length);
-    } else {
-      throw new SyntaxError(`Expected "${sequence}", got "${this.consumeN(sequence.length)}"`);
-    }
-  }
-  consume(pattern = /^[\s\S]$/, {
-    min = 0,
-    max = Infinity,
-    inverse = false,
-    tokenMap,
-    tokenFilter
-  } = {}) {
-    const start = this.index;
-    const match = TokenStack.getMatchCallback(pattern);
-    while (match(this.current, this.index, this.stack) !== inverse) {
-      this.current = this.stack[++this.index];
-    }
-    let consumed = this.stack.slice(start, this.index);
-    if (consumed.length < min) {
-      throw new SyntaxError(`Not enough ${TokenStack.getPatternText(pattern)}`);
-    } else if (consumed.length > max) {
-      throw new SyntaxError(`Too many ${TokenStack.getPatternText(pattern)}`);
-    }
-    if (tokenMap) {
-      consumed = consumed.map(tokenMap);
-    }
-    if (tokenFilter) {
-      consumed = consumed.filter(tokenFilter);
-    }
-    return consumed.join('');
-  }
-}
-var _default = exports.default = TokenStack;
-},{}],83:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.Translator = void 0;
-function createConditionEval(condition) {
-  return function conditionEval(input) {
-    if (typeof condition === 'boolean') {
-      return condition;
-    }
-    return Object.keys(condition).every(prop => {
-      const value = condition[prop];
-      if (value === true) {
-        return prop in input;
-      } else if (value === false) {
-        return !(prop in input);
-      } else if (typeof value === 'function') {
-        return value(input[prop]);
-      } else if (Array.isArray(value)) {
-        return value.includes(input[prop]);
-      } else {
-        return input[prop] === value;
-      }
-    });
-  };
-}
-function parsePropStatement(prop, toSource) {
-  let inputProp;
-  let outputProp;
-  let convert;
-  let condition;
-  if (typeof prop === 'string') {
-    inputProp = outputProp = prop;
-  } else if (prop) {
-    inputProp = toSource ? prop.target : prop.source;
-    outputProp = toSource ? prop.source : prop.target;
-    if (prop.convert) {
-      convert = toSource ? prop.convert.toSource : prop.convert.toTarget;
-    }
-    if (prop.when) {
-      condition = toSource ? prop.when.target : prop.when.source;
-      if (condition != null) {
-        condition = createConditionEval(condition);
-      }
-    }
-  } else {
-    return null;
-  }
-  inputProp = [].concat(inputProp).filter(Boolean);
-  outputProp = [].concat(outputProp).filter(Boolean);
-  return {
-    inputProp,
-    outputProp,
-    convert,
-    condition
-  };
-}
-function createConverter(props, toSource) {
-  toSource = toSource === Translator.CONVERT_TO_SOURCE;
-  props = props.map(prop => parsePropStatement(prop, toSource)).filter(Boolean);
-  return function converter(input) {
-    const output = {};
-    for (const {
-      inputProp,
-      outputProp,
-      convert,
-      condition
-    } of props) {
-      if (outputProp.length === 0) {
-        continue;
-      } else if (condition && !condition(input)) {
-        continue;
-      } else if (inputProp.length !== 0 && inputProp.every(prop => !(prop in input))) {
-        continue;
-      }
-      let outputData = inputProp.map(prop => input[prop]);
-      if (convert) {
-        try {
-          const converted = convert.apply(input, outputData);
-          outputData = outputProp.length === 1 ? [converted] : converted;
-        } catch (cause) {
-          throw new Error(`Failed to convert ${inputProp} to ${outputProp}`, {
-            cause
-          });
-        }
-      }
-      outputProp.forEach((prop, index) => {
-        const value = outputData[index];
-        if (value !== undefined) {
-          output[prop] = value;
-        }
-      });
-    }
-    return output;
-  };
-}
-class Translator {
-  constructor(props) {
-    this.convertToSource = createConverter(props, Translator.CONVERT_TO_SOURCE);
-    this.convertToTarget = createConverter(props, Translator.CONVERT_TO_TARGET);
-  }
-}
-exports.Translator = Translator;
-Translator.CONVERT_TO_SOURCE = Symbol('convert to source');
-Translator.CONVERT_TO_TARGET = Symbol('convert to target');
-},{}],84:[function(require,module,exports){
 module.exports={
   "name": "@citation-js/core",
   "version": "0.8.2",
@@ -4981,7 +2430,7 @@ module.exports={
   "gitHead": "28ce00a6a5dd967baeb7f128f3f6b4a7217e5d46"
 }
 
-},{}],85:[function(require,module,exports){
+},{}],43:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -5005,7 +2454,7 @@ var _input = _interopRequireDefault(require("./input"));
 var _output = _interopRequireDefault(require("./output"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"./input":86,"./output":87}],86:[function(require,module,exports){
+},{"./input":44,"./output":45}],44:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -5249,7 +2698,7 @@ function parseDate(rangeStart, rangeEnd) {
 
 var _default = parseDate;
 exports.default = _default;
-},{}],87:[function(require,module,exports){
+},{}],45:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -5293,7 +2742,7 @@ const getDate = function getDate(date, delimiter = '-') {
 
 var _default = getDate;
 exports.default = _default;
-},{}],88:[function(require,module,exports){
+},{}],46:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -5317,7 +2766,7 @@ var _input = _interopRequireDefault(require("./input"));
 var _output = _interopRequireDefault(require("./output"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"./input":89,"./output":90}],89:[function(require,module,exports){
+},{"./input":47,"./output":48}],47:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -5417,7 +2866,7 @@ const scope = '@name';
 exports.scope = scope;
 const types = '@name';
 exports.types = types;
-},{}],90:[function(require,module,exports){
+},{}],48:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -5444,7 +2893,7 @@ const getName = function getName(name, reversed = false) {
 
 var _default = getName;
 exports.default = _default;
-},{}],91:[function(require,module,exports){
+},{}],49:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -5477,7 +2926,7 @@ var _default = exports.default = {
     namedAnnotationMarker: ':'
   }
 };
-},{"./input/constants.js":94,"./mapping/biblatexTypes.json":104,"./mapping/bibtexTypes.json":106}],92:[function(require,module,exports){
+},{"./input/constants.js":52,"./mapping/biblatexTypes.json":62,"./mapping/bibtexTypes.json":64}],50:[function(require,module,exports){
 "use strict";
 
 var _core = require("@citation-js/core");
@@ -5490,7 +2939,7 @@ _core.plugins.add(_index.ref, {
   output: _index2.default,
   config: _config.default
 });
-},{"./config.js":91,"./input/index.js":98,"./output/index.js":113,"@citation-js/core":10}],93:[function(require,module,exports){
+},{"./config.js":49,"./input/index.js":56,"./output/index.js":71,"@citation-js/core":"citation-js"}],51:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -5531,7 +2980,7 @@ const parseBibTxtEntry = entry => {
 exports.textEntry = parseBibTxtEntry;
 const parseBibTxt = src => src.trim().split(bibTxtRegex.splitEntries).map(parseBibTxtEntry);
 exports.text = exports.parse = parseBibTxt;
-},{}],94:[function(require,module,exports){
+},{}],52:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -5702,7 +3151,7 @@ const mathScripts = exports.mathScripts = {
   }
 };
 const sentenceCaseLanguages = exports.sentenceCaseLanguages = ['american', 'british', 'canadian', 'english', 'australian', 'newzealand', 'usenglish', 'ukenglish', 'en', 'eng', 'en-au', 'en-bz', 'en-ca', 'en-cb', 'en-gb', 'en-ie', 'en-jm', 'en-nz', 'en-ph', 'en-tt', 'en-us', 'en-za', 'en-zw', 'anglais'];
-},{"./fieldTypes.json":96,"./required.json":100,"./unicode.json":101}],95:[function(require,module,exports){
+},{"./fieldTypes.json":54,"./required.json":58,"./unicode.json":59}],53:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -5780,7 +3229,7 @@ function parseBibtex(entries) {
   }
   return (0, _index.parseBibtex)(entries.map(parseEntryValues));
 }
-},{"../config.js":91,"../mapping/index.js":108,"./constants.js":94,"./value.js":102}],96:[function(require,module,exports){
+},{"../config.js":49,"../mapping/index.js":66,"./constants.js":52,"./value.js":60}],54:[function(require,module,exports){
 module.exports={
   "abstract": ["field", "literal"],
   "addendum": ["field", "literal"],
@@ -5933,7 +3382,7 @@ module.exports={
   "pmcid": ["field", "literal"]
 }
 
-},{}],97:[function(require,module,exports){
+},{}],55:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -6196,7 +3645,7 @@ const bibtexGrammar = exports.bibtexGrammar = new _core.util.Grammar({
 function parse(text) {
   return bibtexGrammar.parse(lexer.reset(text));
 }
-},{"../config.js":91,"./constants.js":94,"@citation-js/core":10,"moo":142}],98:[function(require,module,exports){
+},{"../config.js":49,"./constants.js":52,"@citation-js/core":"citation-js","moo":100}],56:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -6252,7 +3701,7 @@ const formats = exports.formats = {
     }
   }
 };
-},{"./bibtxt.js":93,"./entries.js":95,"./file.js":97}],99:[function(require,module,exports){
+},{"./bibtxt.js":51,"./entries.js":53,"./file.js":55}],57:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -6351,12 +3800,12 @@ function orderNamePieces(pieces) {
   }
   return name;
 }
-},{}],100:[function(require,module,exports){
+},{}],58:[function(require,module,exports){
 module.exports={"biblatex":{"article":["author","title","journaltitle",["year","date"]],"book":["author","title",["year","date"]],"mvbook":["author","title",["year","date"]],"inbook":["author","title","booktitle",["year","date"]],"booklet":[["author","editor"],"title",["year","date"]],"collection":["editor","title",["year","date"]],"mvcollection":["editor","title",["year","date"]],"incollection":["author","title","booktitle",["year","date"]],"dataset":[["author","editor"],"title",["year","date"]],"online":[["author","editor"],"title",["year","date"],["doi","eprint","url"]],"patent":["author","title","number",["year","date"]],"periodical":["editor","title",["year","date"]],"proceedings":["title",["year","date"]],"mvproceedings":["title",["year","date"]],"inproceedings":["author","title","booktitle",["year","date"]],"report":["author","title","type","institution",["year","date"]],"thesis":["author","title","type","institution",["year","date"]],"unpublished":["author","title",["year","date"]],"conference":["author","title","booktitle",["year","date"]],"electronic":[["author","editor"],"title",["year","date"],["doi","eprint","url"]],"mastersthesis":["author","title","institution",["year","date"]],"phdthesis":["author","title","institution",["year","date"]],"techreport":["author","title","institution",["year","date"]],"www":[["author","editor"],"title",["year","date"],["doi","eprint","url"]]},"bibtex":{"article":["author","title","journal","year"],"book":[["author","editor"],"title","publisher","year"],"booklet":["title"],"inbook":[["author","editor"],"title",["chapter","pages"],"publisher","year"],"incollection":["author","title","booktitle","publisher","year"],"inproceedings":["author","title","booktitle","year"],"mastersthesis":["author","title","school","year"],"phdthesis":["author","title","school","year"],"proceedings":["title","year"],"techreport":["author","title","institution","year"],"unpublished":["author","title","note"]}}
-},{}],101:[function(require,module,exports){
+},{}],59:[function(require,module,exports){
 module.exports={"diacritics":{"`":"̀","'":"́","^":"̂","~":"̃","=":"̄","u":"̆",".":"̇","\"":"̈","r":"̊","H":"̋","v":"̌","b":"̲","d":"̣","c":"̧","k":"̨","t":"͡","textcommabelow":"̦"},"commands":{"textquotesingle":"'","textasciigrave":"`","textquotedbl":"\"","textdollar":"$","textless":"<","textgreater":">","textbackslash":"\\","textasciicircum":"^","textunderscore":"_","textbraceleft":"{","textbar":"|","textbraceright":"}","textasciitilde":"~","textexclamdown":"¡","textcent":"¢","textsterling":"£","textcurrency":"¤","textyen":"¥","textbrokenbar":"¦","textsection":"§","textasciidieresis":"¨","textcopyright":"©","textordfeminine":"ª","guillemetleft":"«","guillemotleft":"«","textlnot":"¬","textregistered":"®","textasciimacron":"¯","textdegree":"°","textpm":"±","texttwosuperior":"²","textthreesuperior":"³","textasciiacute":"´","textmu":"µ","textparagraph":"¶","textperiodcentered":"·","textonesuperior":"¹","textordmasculine":"º","guillemetright":"»","guillemotright":"»","textonequarter":"¼","textonehalf":"½","textthreequarters":"¾","textquestiondown":"¿","AE":"Æ","DH":"Ð","texttimes":"×","O":"Ø","TH":"Þ","ss":"ß","ae":"æ","dh":"ð","textdiv":"÷","o":"ø","th":"þ","DJ":"Đ","dj":"đ","i":"ı","IJ":"Ĳ","ij":"ĳ","L":"Ł","l":"ł","NG":"Ŋ","ng":"ŋ","OE":"Œ","oe":"œ","textflorin":"ƒ","j":"ȷ","textasciicaron":"ˇ","textasciibreve":"˘","textacutedbl":"˝","textgravedbl":"˵","texttildelow":"˷","textbaht":"฿","SS":"ẞ","textcompwordmark":"‌","textendash":"–","textemdash":"—","textbardbl":"‖","textquoteleft":"‘","textquoteright":"’","quotesinglbase":"‚","textquotedblleft":"“","textquotedblright":"”","quotedblbase":"„","textdagger":"†","textdaggerdbl":"‡","textbullet":"•","textellipsis":"…","textperthousand":"‰","textpertenthousand":"‱","guilsinglleft":"‹","guilsinglright":"›","textreferencemark":"※","textinterrobang":"‽","textfractionsolidus":"⁄","textlquill":"⁅","textrquill":"⁆","textdiscount":"⁒","textcolonmonetary":"₡","textlira":"₤","textnaira":"₦","textwon":"₩","textdong":"₫","texteuro":"€","textpeso":"₱","textcelsius":"℃","textnumero":"№","textcircledP":"℗","textrecipe":"℞","textservicemark":"℠","texttrademark":"™","textohm":"Ω","textmho":"℧","textestimated":"℮","textleftarrow":"←","textuparrow":"↑","textrightarrow":"→","textdownarrow":"↓","textminus":"−","Hwithstroke":"Ħ","hwithstroke":"ħ","textasteriskcentered":"∗","textsurd":"√","textlangle":"〈","textrangle":"〉","textblank":"␢","textvisiblespace":"␣","textopenbullet":"◦","textbigcircle":"◯","textmusicalnote":"♪","textmarried":"⚭","textdivorced":"⚮","textinterrobangdown":"⸘","textcommabelow":null,"copyright":"©"},"mathCommands":{"Gamma":"Γ","Delta":"Δ","Theta":"Θ","Lambda":"Λ","Xi":"Ξ","Pi":"Π","Sigma":"Σ","Phi":"Φ","Psi":"Ψ","Omega":"Ω","alpha":"α","beta":"β","gamma":"γ","delta":"δ","varepsilon":"ε","zeta":"ζ","eta":"η","theta":"θ","iota":"ι","kappa":"κ","lambda":"λ","mu":"μ","nu":"ν","xi":"ξ","pi":"π","rho":"ρ","varsigma":"ς","sigma":"σ","tau":"τ","upsilon":"υ","varphi":"φ","chi":"χ","psi":"ψ","omega":"ω","vartheta":"ϑ","Upsilon":"ϒ","phi":"ϕ","varpi":"ϖ","varrho":"ϱ","epsilon":"ϵ"}}
 
-},{}],102:[function(require,module,exports){
+},{}],60:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -6895,7 +4344,7 @@ function parseAnnotation(text) {
     col: 0
   }), 'Annotations');
 }
-},{"../config.js":91,"./constants.js":94,"./name.js":99,"@citation-js/core":10,"moo":142}],103:[function(require,module,exports){
+},{"../config.js":49,"./constants.js":52,"./name.js":57,"@citation-js/core":"citation-js","moo":100}],61:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -7472,7 +4921,7 @@ var _default = exports.default = new _core.util.Translator([...aliases, ...nonSp
   target: 'volume-title',
   convert: _shared.Converters.TITLE
 }]);
-},{"./biblatexTypes.json":104,"./shared.js":109,"@citation-js/core":10,"@citation-js/date":85}],104:[function(require,module,exports){
+},{"./biblatexTypes.json":62,"./shared.js":67,"@citation-js/core":"citation-js","@citation-js/date":43}],62:[function(require,module,exports){
 module.exports={
   "source": {
     "article": "article-journal",
@@ -7567,7 +5016,7 @@ module.exports={
   }
 }
 
-},{}],105:[function(require,module,exports){
+},{}],63:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -7831,7 +5280,7 @@ var _default = exports.default = new _core.util.Translator([{
   source: 'volume',
   target: 'volume'
 }]);
-},{"./bibtexTypes.json":106,"./shared.js":109,"@citation-js/core":10,"@citation-js/date":85}],106:[function(require,module,exports){
+},{"./bibtexTypes.json":64,"./shared.js":67,"@citation-js/core":"citation-js","@citation-js/date":43}],64:[function(require,module,exports){
 module.exports={
   "source": {
     "article": "article-journal",
@@ -7864,7 +5313,7 @@ module.exports={
   }
 }
 
-},{}],107:[function(require,module,exports){
+},{}],65:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -7941,7 +5390,7 @@ function crossref(target, entry, registry) {
   }
   return entry;
 }
-},{}],108:[function(require,module,exports){
+},{}],66:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -8004,7 +5453,7 @@ function parse(input) {
 function format(input) {
   return _format(input, _biblatex.default);
 }
-},{"./biblatex.js":103,"./bibtex.js":105,"./crossref.js":107,"./shared.js":109}],109:[function(require,module,exports){
+},{"./biblatex.js":61,"./bibtex.js":63,"./crossref.js":65,"./shared.js":67}],67:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -8337,7 +5786,7 @@ const Converters = exports.Converters = {
     }
   }
 };
-},{"../config.js":91,"@citation-js/core":10}],110:[function(require,module,exports){
+},{"../config.js":49,"@citation-js/core":"citation-js"}],68:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -8369,7 +5818,7 @@ function format(src, dict) {
   const entries = src.map(entry => formatEntry(entry, dict)).join('');
   return dict.bibliographyContainer.join(entries);
 }
-},{"../config.js":91}],111:[function(require,module,exports){
+},{"../config.js":49}],69:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -8388,7 +5837,7 @@ function format(src, dict) {
   const entries = src.map(entry => formatEntry(entry, dict)).join('\n');
   return dict.bibliographyContainer.join(entries);
 }
-},{}],112:[function(require,module,exports){
+},{}],70:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -8431,7 +5880,7 @@ function format(entries) {
 function formatBibtex(entries) {
   return (0, _index.formatBibtex)(entries).map(formatEntryValues);
 }
-},{"../mapping/index.js":108,"./value.js":114}],113:[function(require,module,exports){
+},{"../mapping/index.js":66,"./value.js":72}],71:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -8463,7 +5912,7 @@ var _default = exports.default = {
   biblatex: factory(_entries.format, _bibtex.format),
   bibtxt: factory(_entries.formatBibtex, _bibtxt.format)
 };
-},{"./bibtex.js":110,"./bibtxt.js":111,"./entries.js":112,"@citation-js/core":10}],114:[function(require,module,exports){
+},{"./bibtex.js":68,"./bibtxt.js":69,"./entries.js":70,"@citation-js/core":"citation-js"}],72:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -8631,7 +6080,7 @@ function formatAnnotation(value) {
   }
   return annotations.join('; ');
 }
-},{"../config.js":91,"../input/constants.js":94}],115:[function(require,module,exports){
+},{"../config.js":49,"../input/constants.js":52}],73:[function(require,module,exports){
 "use strict";
 
 var _core = require("@citation-js/core");
@@ -9375,7 +6824,7 @@ _core.plugins.add('@cff', {
   }
 });
 
-},{"@citation-js/core":10,"@citation-js/date":85,"@citation-js/plugin-yaml":139}],116:[function(require,module,exports){
+},{"@citation-js/core":"citation-js","@citation-js/date":43,"@citation-js/plugin-yaml":97}],74:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -9406,7 +6855,7 @@ function parseDoiApi(data) {
   const response = [].concat(data).map(url => _core.util.fetchFile(url, apiOptions)).map(processApiResponse);
   return response;
 }
-},{"./json.js":119,"@citation-js/core":10}],117:[function(require,module,exports){
+},{"./json.js":77,"@citation-js/core":"citation-js"}],75:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -9417,7 +6866,7 @@ function parseDoi(data) {
   const list = Array.isArray(data) ? data : data.trim().split(/(?:\s+)/g);
   return list.map(doi => `https://doi.org/${doi}`);
 }
-},{}],118:[function(require,module,exports){
+},{}],76:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -9484,7 +6933,7 @@ const formats = exports.formats = {
 _core.plugins.add(ref, {
   input: formats
 });
-},{"./api.js":116,"./id.js":117,"./json.js":119,"./type.js":120,"@citation-js/core":10}],119:[function(require,module,exports){
+},{"./api.js":74,"./id.js":75,"./json.js":77,"./type.js":78,"@citation-js/core":"citation-js"}],77:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -9514,7 +6963,7 @@ function parseDoiJson(data) {
   }
   return Object.assign({}, data, res);
 }
-},{"./type.js":120}],120:[function(require,module,exports){
+},{"./type.js":78}],78:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -9537,7 +6986,7 @@ function fetchDoiType(value, data) {
   }
   return doiTypes[value] || value;
 }
-},{}],121:[function(require,module,exports){
+},{}],79:[function(require,module,exports){
 "use strict";
 
 var _core = require("@citation-js/core");
@@ -9650,7 +7099,7 @@ _core.plugins.add('@github', {
   }
 });
 
-},{"@citation-js/core":10,"@citation-js/date":85,"@citation-js/name":88}],122:[function(require,module,exports){
+},{"@citation-js/core":"citation-js","@citation-js/date":43,"@citation-js/name":46}],80:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -9775,7 +7224,7 @@ function format(records) {
 }
 const GOOGLE_BOOKS_API_VERSION = 'v1';
 exports.GOOGLE_BOOKS_API_VERSION = GOOGLE_BOOKS_API_VERSION;
-},{"@citation-js/core":10,"@citation-js/date":85,"@citation-js/name":88}],123:[function(require,module,exports){
+},{"@citation-js/core":"citation-js","@citation-js/date":43,"@citation-js/name":46}],81:[function(require,module,exports){
 "use strict";
 
 var _core = require("@citation-js/core");
@@ -9783,7 +7232,7 @@ var _input = require("./input");
 _core.plugins.add(_input.ref, {
   input: _input.formats
 });
-},{"./input":124,"@citation-js/core":10}],124:[function(require,module,exports){
+},{"./input":82,"@citation-js/core":"citation-js"}],82:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -9932,7 +7381,7 @@ const formats = {
   }
 };
 exports.formats = formats;
-},{"./google-books.js":122,"./open-library.js":125,"@citation-js/core":10}],125:[function(require,module,exports){
+},{"./google-books.js":80,"./open-library.js":83,"@citation-js/core":"citation-js"}],83:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -10052,7 +7501,7 @@ function format(records) {
   }
   return output;
 }
-},{"@citation-js/core":10,"@citation-js/date":85,"@citation-js/name":88}],126:[function(require,module,exports){
+},{"@citation-js/core":"citation-js","@citation-js/date":43,"@citation-js/name":46}],84:[function(require,module,exports){
 "use strict";
 
 var _core = require("@citation-js/core");
@@ -10143,9 +7592,9 @@ _core.plugins.add('@npm', {
   }
 });
 
-},{"@citation-js/core":10,"@citation-js/date":85,"@citation-js/name":88}],127:[function(require,module,exports){
-arguments[4][123][0].apply(exports,arguments)
-},{"./input":128,"@citation-js/core":10,"dup":123}],128:[function(require,module,exports){
+},{"@citation-js/core":"citation-js","@citation-js/date":43,"@citation-js/name":46}],85:[function(require,module,exports){
+arguments[4][81][0].apply(exports,arguments)
+},{"./input":86,"@citation-js/core":"citation-js","dup":81}],86:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -10186,7 +7635,7 @@ const formats = {
   }
 };
 exports.formats = formats;
-},{"@citation-js/core":10}],129:[function(require,module,exports){
+},{"@citation-js/core":"citation-js"}],87:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -10340,7 +7789,7 @@ const CONVERTERS = {
   }
 };
 var _default = exports.default = CONVERTERS;
-},{"./spec/types.json":138,"@citation-js/date":85}],130:[function(require,module,exports){
+},{"./spec/types.json":96,"@citation-js/date":43}],88:[function(require,module,exports){
 module.exports={
   "author": "NAME",
   "chair": "NAME",
@@ -10385,7 +7834,7 @@ module.exports={
   "DOI": "DOI"
 }
 
-},{}],131:[function(require,module,exports){
+},{}],89:[function(require,module,exports){
 "use strict";
 
 var _core = require("@citation-js/core");
@@ -10441,7 +7890,7 @@ _core.plugins.add('@ris', {
     ris: _ris.format
   }
 });
-},{"./ris.js":132,"@citation-js/core":10}],132:[function(require,module,exports){
+},{"./ris.js":90,"@citation-js/core":"citation-js"}],90:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -10582,7 +8031,7 @@ function format(data, {
     return tags.join('\n');
   }).join('\n');
 }
-},{"./converters.js":129,"./dataTypes.json":130,"./spec/index.js":134,"@citation-js/core":10}],133:[function(require,module,exports){
+},{"./converters.js":87,"./dataTypes.json":88,"./spec/index.js":92,"@citation-js/core":"citation-js"}],91:[function(require,module,exports){
 module.exports=[
   {
     "source": [
@@ -11201,7 +8650,7 @@ module.exports=[
   }
 ]
 
-},{}],134:[function(require,module,exports){
+},{}],92:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -11224,7 +8673,7 @@ const SPECS = exports.SPECS = {
   old: _old.default,
   mixed: _mixed.default
 };
-},{"./mixed.js":135,"./new.json":136,"./old.js":137,"./types.json":138}],135:[function(require,module,exports){
+},{"./mixed.js":93,"./new.json":94,"./old.js":95,"./types.json":96}],93:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -11235,7 +8684,7 @@ var _new = _interopRequireDefault(require("./new.json"));
 var _additions = _interopRequireDefault(require("./additions.json"));
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 var _default = exports.default = _new.default.concat(_additions.default);
-},{"./additions.json":133,"./new.json":136}],136:[function(require,module,exports){
+},{"./additions.json":91,"./new.json":94}],94:[function(require,module,exports){
 module.exports=[
   {
     "source": "A2",
@@ -15954,7 +13403,7 @@ module.exports=[
   }
 ]
 
-},{}],137:[function(require,module,exports){
+},{}],95:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -16097,7 +13546,7 @@ var _default = exports.default = [{
   source: 'UR',
   target: 'URL'
 }];
-},{"../converters.js":129}],138:[function(require,module,exports){
+},{"../converters.js":87}],96:[function(require,module,exports){
 module.exports={
   "RIS": {
     "ABST": "article-journal",
@@ -16207,7 +13656,7 @@ module.exports={
   }
 }
 
-},{}],139:[function(require,module,exports){
+},{}],97:[function(require,module,exports){
 "use strict";
 
 var yaml = _interopRequireWildcard(require("js-yaml"));
@@ -16251,57 +13700,39 @@ _core.plugins.add('@else', {
   }
 });
 
-},{"@citation-js/core":10,"js-yaml":141}],140:[function(require,module,exports){
+},{"@citation-js/core":"citation-js","js-yaml":99}],98:[function(require,module,exports){
 
-},{}],141:[function(require,module,exports){
+},{}],99:[function(require,module,exports){
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.boolYaml11Tag = exports.boolJsonTag = exports.boolCoreTag = exports.binaryTag = exports.YAMLException = exports.YAML11_SCHEMA = exports.VISIT_SKIP = exports.VISIT_BREAK = exports.Schema = exports.SCALAR_STYLE_SINGLE_QUOTED = exports.SCALAR_STYLE_PLAIN = exports.SCALAR_STYLE_LITERAL_BLOCK = exports.SCALAR_STYLE_FOLDED_BLOCK = exports.SCALAR_STYLE_DOUBLE_QUOTED = exports.SCALAR_STYLE = exports.NOT_RESOLVED = exports.JSON_SCHEMA = exports.FAILSAFE_SCHEMA = exports.EVENT_SEQUENCE = exports.EVENT_SCALAR = exports.EVENT_POP = exports.EVENT_MAPPING = exports.EVENT_ID = exports.EVENT_DOCUMENT = exports.EVENT_ALIAS = exports.DUMP_SCHEMA = exports.DEFAULT_SCALAR_STYLE_RULES = exports.CORE_SCHEMA = exports.COLLECTION_STYLE_FLOW = exports.COLLECTION_STYLE_BLOCK = exports.COLLECTION_STYLE = exports.CHOMPING_STRIP = exports.CHOMPING_MODE = exports.CHOMPING_KEEP = exports.CHOMPING_CLIP = void 0;
-exports.constructFromEvents = constructFromEvents;
-exports.defineMappingTag = defineMappingTag;
-exports.defineScalarTag = defineScalarTag;
-exports.defineSequenceTag = defineSequenceTag;
-exports.dump = dump;
-exports.eventsToAst = eventsToAst;
-exports.floatYaml11Tag = exports.floatJsonTag = exports.floatCoreTag = void 0;
-exports.getScalarValue = getScalarValue;
-exports.intYaml11Tag = exports.intJsonTag = exports.intCoreTag = void 0;
-exports.jsToAst = jsToAst;
-exports.legacyMapTag = void 0;
-exports.load = load;
-exports.loadAll = loadAll;
-exports.pairsTag = exports.omapTag = exports.nullYaml11Tag = exports.nullJsonTag = exports.nullCoreTag = exports.mergeTag = exports.mapTag = void 0;
-exports.parseEvents = parseEvents;
-exports.present = present;
-exports.timestampTag = exports.strTag = exports.setTag = exports.seqTag = exports.realMapTag = void 0;
-exports.visit = visit;
 /*! js-yaml 5.4.1 https://github.com/nodeca/js-yaml @license MIT */
+Object.defineProperty(exports, Symbol.toStringTag, {
+  value: "Module"
+});
 //#region src/tag.ts
 /**
 * Returned by a scalar resolver when the source does not match its tag.
 *
 * @category Tags
 */
-var NOT_RESOLVED = exports.NOT_RESOLVED = Symbol("NOT_RESOLVED");
+var NOT_RESOLVED = Symbol("NOT_RESOLVED");
 /**
 * Create a normalized scalar tag definition.
 *
 * @category Tags
 */
 function defineScalarTag(tagName, options) {
+  var _options$implicit, _options$matchByTagPr, _options$implicitFirs, _options$represent, _options$representTag;
   return {
     tagName,
     nodeKind: "scalar",
-    implicit: options.implicit ?? false,
-    matchByTagPrefix: options.matchByTagPrefix ?? false,
-    implicitFirstChars: options.implicitFirstChars ?? null,
+    implicit: (_options$implicit = options.implicit) !== null && _options$implicit !== void 0 ? _options$implicit : false,
+    matchByTagPrefix: (_options$matchByTagPr = options.matchByTagPrefix) !== null && _options$matchByTagPr !== void 0 ? _options$matchByTagPr : false,
+    implicitFirstChars: (_options$implicitFirs = options.implicitFirstChars) !== null && _options$implicitFirs !== void 0 ? _options$implicitFirs : null,
     resolve: options.resolve,
     identify: options.identify,
-    represent: options.represent ?? (data => String(data)),
-    representTagName: options.representTagName ?? (() => tagName)
+    represent: (_options$represent = options.represent) !== null && _options$represent !== void 0 ? _options$represent : data => String(data),
+    representTagName: (_options$representTag = options.representTagName) !== null && _options$representTag !== void 0 ? _options$representTag : () => tagName
   };
 }
 /**
@@ -16310,19 +13741,20 @@ function defineScalarTag(tagName, options) {
 * @category Tags
 */
 function defineSequenceTag(tagName, options) {
+  var _options$matchByTagPr2, _options$finalize, _options$represent2, _options$representTag2;
   const carrierIsResult = options.finalize === void 0;
   return {
     tagName,
     nodeKind: "sequence",
     implicit: false,
-    matchByTagPrefix: options.matchByTagPrefix ?? false,
+    matchByTagPrefix: (_options$matchByTagPr2 = options.matchByTagPrefix) !== null && _options$matchByTagPr2 !== void 0 ? _options$matchByTagPr2 : false,
     create: options.create,
     addItem: options.addItem,
-    finalize: options.finalize ?? (carrier => carrier),
+    finalize: (_options$finalize = options.finalize) !== null && _options$finalize !== void 0 ? _options$finalize : carrier => carrier,
     carrierIsResult,
     identify: options.identify,
-    represent: options.represent ?? (data => data),
-    representTagName: options.representTagName ?? (() => tagName)
+    represent: (_options$represent2 = options.represent) !== null && _options$represent2 !== void 0 ? _options$represent2 : data => data,
+    representTagName: (_options$representTag2 = options.representTagName) !== null && _options$representTag2 !== void 0 ? _options$representTag2 : () => tagName
   };
 }
 /**
@@ -16331,28 +13763,29 @@ function defineSequenceTag(tagName, options) {
 * @category Tags
 */
 function defineMappingTag(tagName, options) {
+  var _options$matchByTagPr3, _options$finalize2, _options$represent3, _options$representTag3;
   const carrierIsResult = options.finalize === void 0;
   return {
     tagName,
     nodeKind: "mapping",
     implicit: false,
-    matchByTagPrefix: options.matchByTagPrefix ?? false,
+    matchByTagPrefix: (_options$matchByTagPr3 = options.matchByTagPrefix) !== null && _options$matchByTagPr3 !== void 0 ? _options$matchByTagPr3 : false,
     create: options.create,
     addPair: options.addPair,
     has: options.has,
     keys: options.keys,
     get: options.get,
-    finalize: options.finalize ?? (carrier => carrier),
+    finalize: (_options$finalize2 = options.finalize) !== null && _options$finalize2 !== void 0 ? _options$finalize2 : carrier => carrier,
     carrierIsResult,
     identify: options.identify,
-    represent: options.represent ?? (data => data),
-    representTagName: options.representTagName ?? (() => tagName)
+    represent: (_options$represent3 = options.represent) !== null && _options$represent3 !== void 0 ? _options$represent3 : data => data,
+    representTagName: (_options$representTag3 = options.representTagName) !== null && _options$representTag3 !== void 0 ? _options$representTag3 : () => tagName
   };
 }
 //#endregion
 //#region src/tag/scalar/str.ts
 /** @category Tags */
-var strTag = exports.strTag = defineScalarTag("tag:yaml.org,2002:str", {
+var strTag = defineScalarTag("tag:yaml.org,2002:str", {
   resolve: source => source,
   identify: data => typeof data === "string"
 });
@@ -16360,7 +13793,7 @@ var strTag = exports.strTag = defineScalarTag("tag:yaml.org,2002:str", {
 //#region src/tag/scalar/null_core.ts
 var NULL_VALUES$1 = ["", "~", "null", "Null", "NULL"];
 /** @category Tags */
-var nullCoreTag = exports.nullCoreTag = defineScalarTag("tag:yaml.org,2002:null", {
+var nullCoreTag = defineScalarTag("tag:yaml.org,2002:null", {
   implicit: true,
   implicitFirstChars: ["", "~", "n", "N"],
   resolve: source => {
@@ -16373,7 +13806,7 @@ var nullCoreTag = exports.nullCoreTag = defineScalarTag("tag:yaml.org,2002:null"
 //#endregion
 //#region src/tag/scalar/null_json.ts
 /** @category Tags */
-var nullJsonTag = exports.nullJsonTag = defineScalarTag("tag:yaml.org,2002:null", {
+var nullJsonTag = defineScalarTag("tag:yaml.org,2002:null", {
   implicit: true,
   implicitFirstChars: ["n"],
   resolve: (source, isExplicit) => {
@@ -16387,7 +13820,7 @@ var nullJsonTag = exports.nullJsonTag = defineScalarTag("tag:yaml.org,2002:null"
 //#region src/tag/scalar/null_yaml11.ts
 var NULL_VALUES = ["", "~", "null", "Null", "NULL"];
 /** @category Tags */
-var nullYaml11Tag = exports.nullYaml11Tag = defineScalarTag("tag:yaml.org,2002:null", {
+var nullYaml11Tag = defineScalarTag("tag:yaml.org,2002:null", {
   implicit: true,
   implicitFirstChars: ["", "~", "n", "N"],
   resolve: source => {
@@ -16402,7 +13835,7 @@ var nullYaml11Tag = exports.nullYaml11Tag = defineScalarTag("tag:yaml.org,2002:n
 var TRUE_VALUES$2 = ["true", "True", "TRUE"];
 var FALSE_VALUES$2 = ["false", "False", "FALSE"];
 /** @category Tags */
-var boolCoreTag = exports.boolCoreTag = defineScalarTag("tag:yaml.org,2002:bool", {
+var boolCoreTag = defineScalarTag("tag:yaml.org,2002:bool", {
   implicit: true,
   implicitFirstChars: ["t", "T", "f", "F"],
   resolve: source => {
@@ -16418,7 +13851,7 @@ var boolCoreTag = exports.boolCoreTag = defineScalarTag("tag:yaml.org,2002:bool"
 var TRUE_VALUES$1 = ["true"];
 var FALSE_VALUES$1 = ["false"];
 /** @category Tags */
-var boolJsonTag = exports.boolJsonTag = defineScalarTag("tag:yaml.org,2002:bool", {
+var boolJsonTag = defineScalarTag("tag:yaml.org,2002:bool", {
   implicit: true,
   implicitFirstChars: ["t", "f"],
   resolve: source => {
@@ -16434,7 +13867,7 @@ var boolJsonTag = exports.boolJsonTag = defineScalarTag("tag:yaml.org,2002:bool"
 var TRUE_VALUES = ["true", "True", "TRUE", "y", "Y", "yes", "Yes", "YES", "on", "On", "ON"];
 var FALSE_VALUES = ["false", "False", "FALSE", "n", "N", "no", "No", "NO", "off", "Off", "OFF"];
 /** @category Tags */
-var boolYaml11Tag = exports.boolYaml11Tag = defineScalarTag("tag:yaml.org,2002:bool", {
+var boolYaml11Tag = defineScalarTag("tag:yaml.org,2002:bool", {
   implicit: true,
   implicitFirstChars: ["y", "Y", "n", "N", "t", "T", "f", "F", "o", "O"],
   resolve: source => {
@@ -16469,7 +13902,7 @@ function resolveYamlInteger$2(source, isExplicit) {
   return Number.isFinite(result) ? result : NOT_RESOLVED;
 }
 /** @category Tags */
-var intCoreTag = exports.intCoreTag = defineScalarTag("tag:yaml.org,2002:int", {
+var intCoreTag = defineScalarTag("tag:yaml.org,2002:int", {
   implicit: true,
   implicitFirstChars: ["-", "+", ..."0123456789"],
   resolve: resolveYamlInteger$2,
@@ -16500,7 +13933,7 @@ function resolveYamlInteger$1(source, isExplicit) {
   return Number.isFinite(result) ? result : NOT_RESOLVED;
 }
 /** @category Tags */
-var intJsonTag = exports.intJsonTag = defineScalarTag("tag:yaml.org,2002:int", {
+var intJsonTag = defineScalarTag("tag:yaml.org,2002:int", {
   implicit: true,
   implicitFirstChars: ["-", ..."0123456789"],
   resolve: resolveYamlInteger$1,
@@ -16533,7 +13966,7 @@ function resolveYamlInteger(source) {
   return Number.isFinite(result) ? result : NOT_RESOLVED;
 }
 /** @category Tags */
-var intYaml11Tag = exports.intYaml11Tag = defineScalarTag("tag:yaml.org,2002:int", {
+var intYaml11Tag = defineScalarTag("tag:yaml.org,2002:int", {
   implicit: true,
   implicitFirstChars: ["-", "+", ..."0123456789"],
   resolve: resolveYamlInteger,
@@ -16564,7 +13997,7 @@ function representYamlFloat$2(object) {
   return /^[-+]?[0-9]+e/.test(result) ? result.replace("e", ".e") : result;
 }
 /** @category Tags */
-var floatCoreTag = exports.floatCoreTag = defineScalarTag("tag:yaml.org,2002:float", {
+var floatCoreTag = defineScalarTag("tag:yaml.org,2002:float", {
   implicit: true,
   implicitFirstChars: ["-", "+", ".", ..."0123456789"],
   resolve: resolveYamlFloat$2,
@@ -16600,7 +14033,7 @@ function representYamlFloat$1(object) {
   return /^[-+]?[0-9]+e/.test(result) ? result.replace("e", ".e") : result;
 }
 /** @category Tags */
-var floatJsonTag = exports.floatJsonTag = defineScalarTag("tag:yaml.org,2002:float", {
+var floatJsonTag = defineScalarTag("tag:yaml.org,2002:float", {
   implicit: true,
   implicitFirstChars: ["-", ..."0123456789"],
   resolve: resolveYamlFloat$1,
@@ -16635,7 +14068,7 @@ function representYamlFloat(object) {
   return /^[-+]?[0-9]+e/.test(result) ? result.replace("e", ".e") : result;
 }
 /** @category Tags */
-var floatYaml11Tag = exports.floatYaml11Tag = defineScalarTag("tag:yaml.org,2002:float", {
+var floatYaml11Tag = defineScalarTag("tag:yaml.org,2002:float", {
   implicit: true,
   implicitFirstChars: ["-", "+", ".", ..."0123456789"],
   resolve: resolveYamlFloat,
@@ -16650,7 +14083,7 @@ var floatYaml11Tag = exports.floatYaml11Tag = defineScalarTag("tag:yaml.org,2002
 *
 * @category Tags
 */
-var mergeTag = exports.mergeTag = defineScalarTag("tag:yaml.org,2002:merge", {
+var mergeTag = defineScalarTag("tag:yaml.org,2002:merge", {
   implicit: true,
   implicitFirstChars: ["<"],
   resolve: (source, isExplicit) => {
@@ -16680,7 +14113,7 @@ function representYamlBinary(object) {
 *
 * @category Tags
 */
-var binaryTag = exports.binaryTag = defineScalarTag("tag:yaml.org,2002:binary", {
+var binaryTag = defineScalarTag("tag:yaml.org,2002:binary", {
   resolve: resolveYamlBinary,
   identify: object => Object.prototype.toString.call(object) === "[object Uint8Array]",
   represent: representYamlBinary
@@ -16732,7 +14165,7 @@ function resolveYamlTimestamp(source) {
 *
 * @category Tags
 */
-var timestampTag = exports.timestampTag = defineScalarTag("tag:yaml.org,2002:timestamp", {
+var timestampTag = defineScalarTag("tag:yaml.org,2002:timestamp", {
   implicit: true,
   implicitFirstChars: [..."0123456789"],
   resolve: resolveYamlTimestamp,
@@ -16742,7 +14175,7 @@ var timestampTag = exports.timestampTag = defineScalarTag("tag:yaml.org,2002:tim
 //#endregion
 //#region src/tag/sequence/seq.ts
 /** @category Tags */
-var seqTag = exports.seqTag = defineSequenceTag("tag:yaml.org,2002:seq", {
+var seqTag = defineSequenceTag("tag:yaml.org,2002:seq", {
   create: () => [],
   addItem: (container, item) => {
     container.push(item);
@@ -16785,7 +14218,7 @@ function pick(object, keys) {
 *
 * @category Tags
 */
-var omapTag = exports.omapTag = defineSequenceTag("tag:yaml.org,2002:omap", {
+var omapTag = defineSequenceTag("tag:yaml.org,2002:omap", {
   create: () => ({
     list: [],
     seen: /* @__PURE__ */new Set()
@@ -16832,7 +14265,7 @@ var omapTag = exports.omapTag = defineSequenceTag("tag:yaml.org,2002:omap", {
 *
 * @category Tags
 */
-var pairsTag = exports.pairsTag = defineSequenceTag("tag:yaml.org,2002:pairs", {
+var pairsTag = defineSequenceTag("tag:yaml.org,2002:pairs", {
   create: () => [],
   addItem: (container, item) => {
     if (item instanceof Map) {
@@ -16872,7 +14305,7 @@ var pairsTag = exports.pairsTag = defineSequenceTag("tag:yaml.org,2002:pairs", {
 *
 * @category Tags
 */
-var mapTag = exports.mapTag = defineMappingTag("tag:yaml.org,2002:map", {
+var mapTag = defineMappingTag("tag:yaml.org,2002:map", {
   create: () => ({}),
   identify: isPlainObject,
   represent: o => {
@@ -16909,7 +14342,7 @@ var mapTag = exports.mapTag = defineMappingTag("tag:yaml.org,2002:map", {
 *
 * @category Tags
 */
-var setTag = exports.setTag = defineMappingTag("tag:yaml.org,2002:set", {
+var setTag = defineMappingTag("tag:yaml.org,2002:set", {
   create: () => /* @__PURE__ */new Set(),
   identify: data => data instanceof Set,
   represent: data => {
@@ -16926,6 +14359,68 @@ var setTag = exports.setTag = defineMappingTag("tag:yaml.org,2002:set", {
   keys: container => container.keys(),
   get: () => null
 });
+//#endregion
+//#region \0@oxc-project+runtime@0.137.0/helpers/esm/typeof.js
+function _typeof(o) {
+  "@babel/helpers - typeof";
+
+  return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) {
+    return typeof o;
+  } : function (o) {
+    return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o;
+  }, _typeof(o);
+}
+//#endregion
+//#region \0@oxc-project+runtime@0.137.0/helpers/esm/toPrimitive.js
+function toPrimitive(t, r) {
+  if ("object" != _typeof(t) || !t) return t;
+  var e = t[Symbol.toPrimitive];
+  if (void 0 !== e) {
+    var i = e.call(t, r || "default");
+    if ("object" != _typeof(i)) return i;
+    throw new TypeError("@@toPrimitive must return a primitive value.");
+  }
+  return ("string" === r ? String : Number)(t);
+}
+//#endregion
+//#region \0@oxc-project+runtime@0.137.0/helpers/esm/toPropertyKey.js
+function toPropertyKey(t) {
+  var i = toPrimitive(t, "string");
+  return "symbol" == _typeof(i) ? i : i + "";
+}
+//#endregion
+//#region \0@oxc-project+runtime@0.137.0/helpers/esm/defineProperty.js
+function _defineProperty(e, r, t) {
+  return (r = toPropertyKey(r)) in e ? Object.defineProperty(e, r, {
+    value: t,
+    enumerable: !0,
+    configurable: !0,
+    writable: !0
+  }) : e[r] = t, e;
+}
+//#endregion
+//#region \0@oxc-project+runtime@0.137.0/helpers/esm/objectSpread2.js
+function ownKeys(e, r) {
+  var t = Object.keys(e);
+  if (Object.getOwnPropertySymbols) {
+    var o = Object.getOwnPropertySymbols(e);
+    r && (o = o.filter(function (r) {
+      return Object.getOwnPropertyDescriptor(e, r).enumerable;
+    })), t.push.apply(t, o);
+  }
+  return t;
+}
+function _objectSpread2(e) {
+  for (var r = 1; r < arguments.length; r++) {
+    var t = null != arguments[r] ? arguments[r] : {};
+    r % 2 ? ownKeys(Object(t), !0).forEach(function (r) {
+      _defineProperty(e, r, t[r]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) {
+      Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r));
+    });
+  }
+  return e;
+}
 //#endregion
 //#region src/schema.ts
 function createTagDefinitionMap() {
@@ -16962,41 +14457,44 @@ function compileTags(tags) {
 *
 * @category Schemas
 */
-var Schema = exports.Schema = class Schema {
-  tags;
-  /** @internal */
-  implicitScalarTags;
-  /**
-  * Dispatch implicit scalar resolvers by `source.charAt(0)`. Each bucket holds
-  * the resolvers that may match that key, in schema order; a key absent from
-  * the map uses
-  * {@link Schema.implicitScalarAnyFirstChar}
-  * (resolvers that declared no first-char constraint, so they apply to any
-  * first character).
-  */
-  implicitScalarByFirstChar;
-  implicitScalarAnyFirstChar;
-  /**
-  * The default scalar tag (`!!str`), resolved once so the composer's fallback
-  * for unresolved plain scalars avoids a keyed lookup per scalar.
-  *
-  * @internal
-  */
-  defaultScalarTag;
-  /**
-  * The default container tags (`!!seq` / `!!map`), used by the dumper: when a
-  * value is identified by its default tag, the tag is implicit and not
-  * printed. Undefined if the schema does not define them (then such values
-  * can't be dumped).
-  *
-  * @internal
-  */
-  defaultSequenceTag;
-  /** @internal */
-  defaultMappingTag;
-  exact;
-  prefix;
+var Schema = class Schema {
   constructor(tags) {
+    _defineProperty(this, "tags", void 0);
+    _defineProperty(this, /** @internal */
+    "implicitScalarTags", void 0);
+    _defineProperty(this,
+    /**
+    * Dispatch implicit scalar resolvers by `source.charAt(0)`. Each bucket holds
+    * the resolvers that may match that key, in schema order; a key absent from
+    * the map uses
+    * {@link Schema.implicitScalarAnyFirstChar}
+    * (resolvers that declared no first-char constraint, so they apply to any
+    * first character).
+    */
+    "implicitScalarByFirstChar", void 0);
+    _defineProperty(this, "implicitScalarAnyFirstChar", void 0);
+    _defineProperty(this,
+    /**
+    * The default scalar tag (`!!str`), resolved once so the composer's fallback
+    * for unresolved plain scalars avoids a keyed lookup per scalar.
+    *
+    * @internal
+    */
+    "defaultScalarTag", void 0);
+    _defineProperty(this,
+    /**
+    * The default container tags (`!!seq` / `!!map`), used by the dumper: when a
+    * value is identified by its default tag, the tag is implicit and not
+    * printed. Undefined if the schema does not define them (then such values
+    * can't be dumped).
+    *
+    * @internal
+    */
+    "defaultSequenceTag", void 0);
+    _defineProperty(this, /** @internal */
+    "defaultMappingTag", void 0);
+    _defineProperty(this, "exact", void 0);
+    _defineProperty(this, "prefix", void 0);
     const compiledTags = compileTags(tags);
     const implicitScalarTags = [];
     const exact = createTagDefinitionMap();
@@ -17055,7 +14553,8 @@ var Schema = exports.Schema = class Schema {
   }
   /** @internal */
   resolveImplicitScalarTag(source) {
-    const candidates = this.implicitScalarByFirstChar.get(source.charAt(0)) ?? this.implicitScalarAnyFirstChar;
+    var _this$implicitScalarB;
+    const candidates = (_this$implicitScalarB = this.implicitScalarByFirstChar.get(source.charAt(0))) !== null && _this$implicitScalarB !== void 0 ? _this$implicitScalarB : this.implicitScalarAnyFirstChar;
     for (const tag of candidates) {
       const value = tag.resolve(source, false, tag.tagName);
       if (value !== NOT_RESOLVED) return {
@@ -17092,14 +14591,14 @@ var Schema = exports.Schema = class Schema {
 *
 * @category Schemas
 */
-var FAILSAFE_SCHEMA = exports.FAILSAFE_SCHEMA = new Schema([strTag, seqTag, mapTag]);
+var FAILSAFE_SCHEMA = new Schema([strTag, seqTag, mapTag]);
 /**
 * The YAML 1.2 JSON Schema. It uses JSON scalar forms while retaining YAML
 * collection syntax.
 *
 * @category Schemas
 */
-var JSON_SCHEMA = exports.JSON_SCHEMA = new Schema([...FAILSAFE_SCHEMA.tags, nullJsonTag, boolJsonTag, intJsonTag, floatJsonTag]);
+var JSON_SCHEMA = new Schema([...FAILSAFE_SCHEMA.tags, nullJsonTag, boolJsonTag, intJsonTag, floatJsonTag]);
 /**
 * The default schema for the loaders. Note, {@link CORE_SCHEMA} comes
 * without the `!!merge` tag. You can easily enable it if needed.
@@ -17119,13 +14618,13 @@ var JSON_SCHEMA = exports.JSON_SCHEMA = new Schema([...FAILSAFE_SCHEMA.tags, nul
 *
 * @category Schemas
 */
-var CORE_SCHEMA = exports.CORE_SCHEMA = new Schema([...FAILSAFE_SCHEMA.tags, nullCoreTag, boolCoreTag, intCoreTag, floatCoreTag]);
+var CORE_SCHEMA = new Schema([...FAILSAFE_SCHEMA.tags, nullCoreTag, boolCoreTag, intCoreTag, floatCoreTag]);
 /**
 * YAML 1.1-compatible schema.
 *
 * @category Schemas
 */
-var YAML11_SCHEMA = exports.YAML11_SCHEMA = new Schema([...FAILSAFE_SCHEMA.tags, nullYaml11Tag, boolYaml11Tag, intYaml11Tag, floatYaml11Tag, timestampTag, mergeTag, binaryTag, omapTag, pairsTag, setTag]);
+var YAML11_SCHEMA = new Schema([...FAILSAFE_SCHEMA.tags, nullYaml11Tag, boolYaml11Tag, intYaml11Tag, floatYaml11Tag, timestampTag, mergeTag, binaryTag, omapTag, pairsTag, setTag]);
 /**
 * The dumper schema for maximum compatibility. It combines all supported type
 * variants from YAML 1.1 and YAML 1.2 so strings matching any of them are
@@ -17137,19 +14636,17 @@ var YAML11_SCHEMA = exports.YAML11_SCHEMA = new Schema([...FAILSAFE_SCHEMA.tags,
 *
 * @category Schemas
 */
-var DUMP_SCHEMA = exports.DUMP_SCHEMA = YAML11_SCHEMA.withTags({
-  ...intYaml11Tag,
+var DUMP_SCHEMA = YAML11_SCHEMA.withTags(_objectSpread2(_objectSpread2({}, intYaml11Tag), {}, {
   resolve: (source, isExplicit, tagName) => {
     const result = intYaml11Tag.resolve(source, isExplicit, tagName);
     return result === NOT_RESOLVED ? intCoreTag.resolve(source, isExplicit, tagName) : result;
   }
-}, {
-  ...floatYaml11Tag,
+}), _objectSpread2(_objectSpread2({}, floatYaml11Tag), {}, {
   resolve: (source, isExplicit, tagName) => {
     const result = floatYaml11Tag.resolve(source, isExplicit, tagName);
     return result === NOT_RESOLVED ? floatCoreTag.resolve(source, isExplicit, tagName) : result;
   }
-});
+}));
 //#endregion
 //#region src/tag/mapping/real_map.ts
 /**
@@ -17180,7 +14677,7 @@ var DUMP_SCHEMA = exports.DUMP_SCHEMA = YAML11_SCHEMA.withTags({
 *
 * @category Tags
 */
-var realMapTag = exports.realMapTag = defineMappingTag("tag:yaml.org,2002:map", {
+var realMapTag = defineMappingTag("tag:yaml.org,2002:map", {
   create: () => /* @__PURE__ */new Map(),
   addPair: (container, key, value) => {
     container.set(key, value);
@@ -17219,7 +14716,7 @@ function normalizeKey(key) {
 *
 * @category Tags
 */
-var legacyMapTag = exports.legacyMapTag = defineMappingTag("tag:yaml.org,2002:map", {
+var legacyMapTag = defineMappingTag("tag:yaml.org,2002:map", {
   create: () => ({}),
   identify: isPlainObject,
   represent: o => {
@@ -17279,10 +14776,7 @@ function padStart(string, max) {
 }
 function makeSnippet(mark, options) {
   if (!mark.buffer) return null;
-  const opts = {
-    ...DEFAULT_SNIPPET_OPTIONS,
-    ...options
-  };
+  const opts = _objectSpread2(_objectSpread2({}, DEFAULT_SNIPPET_OPTIONS), options);
   const re = /\r?\n|\r|\0/g;
   const lineStarts = [0];
   const lineEnds = [];
@@ -17328,15 +14822,15 @@ function formatError(exception, compact) {
 *
 * @category Main
 */
-var YAMLException = exports.YAMLException = class YAMLException extends Error {
-  reason;
-  mark;
+var YAMLException = class YAMLException extends Error {
   /**
   * Optional `mark` contains source snippet data. Usually, use
   * {@link YAMLException.throwAt} instead of passing it directly.
   */
   constructor(reason, mark) {
     super();
+    _defineProperty(this, "reason", void 0);
+    _defineProperty(this, "mark", void 0);
     this.name = "YAMLException";
     this.reason = reason;
     this.mark = mark;
@@ -17381,7 +14875,7 @@ var YAMLException = exports.YAMLException = class YAMLException extends Error {
 //#endregion
 //#region src/parser/events.ts
 /** @category Events */
-var EVENT_ID = exports.EVENT_ID = {
+var EVENT_ID = {
   DOCUMENT: 1,
   SEQUENCE: 2,
   MAPPING: 3,
@@ -17390,7 +14884,7 @@ var EVENT_ID = exports.EVENT_ID = {
   POP: 6
 };
 /** @category Nodes */
-var SCALAR_STYLE = exports.SCALAR_STYLE = {
+var SCALAR_STYLE = {
   PLAIN: 1,
   SINGLE_QUOTED: 2,
   DOUBLE_QUOTED: 3,
@@ -17398,12 +14892,12 @@ var SCALAR_STYLE = exports.SCALAR_STYLE = {
   FOLDED_BLOCK: 5
 };
 /** @category Nodes */
-var COLLECTION_STYLE = exports.COLLECTION_STYLE = {
+var COLLECTION_STYLE = {
   BLOCK: 1,
   FLOW: 2
 };
 /** @category Nodes */
-var CHOMPING_MODE = exports.CHOMPING_MODE = {
+var CHOMPING_MODE = {
   CLIP: 1,
   STRIP: 2,
   KEEP: 3
@@ -17646,10 +15140,11 @@ function tagPercentEncode(source) {
   return encodeURI(source).replace(/!/g, "%21");
 }
 function tagNameFull(rawTag, tagHandlers) {
+  var _ref, _tagHandlers$handle;
   if (rawTag.startsWith("!<") && rawTag.endsWith(">")) return decodeURIComponent(rawTag.slice(2, -1));
   const handleEnd = rawTag.indexOf("!", 1);
   const handle = handleEnd === -1 ? "!" : rawTag.slice(0, handleEnd + 1);
-  const prefix = tagHandlers?.[handle] ?? DEFAULT_TAG_HANDLERS[handle] ?? handle;
+  const prefix = (_ref = (_tagHandlers$handle = tagHandlers === null || tagHandlers === void 0 ? void 0 : tagHandlers[handle]) !== null && _tagHandlers$handle !== void 0 ? _tagHandlers$handle : DEFAULT_TAG_HANDLERS[handle]) !== null && _ref !== void 0 ? _ref : handle;
   return decodeURIComponent(prefix) + decodeURIComponent(rawTag.slice(handle.length));
 }
 function tagNameShort(fullTag) {
@@ -17695,6 +15190,7 @@ function constructScalar(state, event) {
   const rawTag = event.tagStart === NO_RANGE$2 ? "" : state.source.slice(event.tagStart, event.tagEnd);
   const strTag = state.schema.defaultScalarTag;
   if (rawTag !== "") {
+    var _state$schema$lookupM;
     if (rawTag === "!") return {
       value: source,
       tag: strTag
@@ -17709,7 +15205,7 @@ function constructScalar(state, event) {
         tag: scalarTag
       };
     }
-    const collectionTagDef = state.schema.lookupMappingTag(tagName) ?? state.schema.lookupSequenceTag(tagName);
+    const collectionTagDef = (_state$schema$lookupM = state.schema.lookupMappingTag(tagName)) !== null && _state$schema$lookupM !== void 0 ? _state$schema$lookupM : state.schema.lookupSequenceTag(tagName);
     if (collectionTagDef) {
       if (source !== "") throwError$1(state, `cannot resolve a node with !<${tagName}> explicit tag`);
       const carrier = collectionTagDef.create(tagName);
@@ -17740,11 +15236,12 @@ function chargeMergeWork(state) {
 function mergeKeys(state, frame, source, sourceTag) {
   chargeMergeWork(state);
   for (const sourceKey of sourceTag.keys(source)) {
+    var _frame$overridable;
     chargeMergeWork(state);
     if (frame.tag.has(frame.value, sourceKey)) continue;
     const err = frame.tag.addPair(frame.value, sourceKey, sourceTag.get(source, sourceKey));
     if (err) throwError$1(state, err);
-    frame.overridable ??= /* @__PURE__ */new Set();
+    (_frame$overridable = frame.overridable) !== null && _frame$overridable !== void 0 || (frame.overridable = /* @__PURE__ */new Set());
     frame.overridable.add(sourceKey);
   }
 }
@@ -17760,15 +15257,16 @@ function mergeSource(state, frame, source, sourceTag) {
   } else throwError$1(state, "cannot merge mappings; the provided source object is unacceptable");
 }
 function addMappingValue(state, frame, key, value, tag) {
+  var _frame$overridable2, _frame$overridable3;
   state.position = frame.keyPosition;
   if (frame.keyIsMerge) {
     mergeSource(state, frame, value, tag);
     return;
   }
-  if (!state.json && frame.tag.has(frame.value, key) && !frame.overridable?.has(key)) throwError$1(state, "duplicated mapping key");
+  if (!state.json && frame.tag.has(frame.value, key) && !((_frame$overridable2 = frame.overridable) === null || _frame$overridable2 === void 0 ? void 0 : _frame$overridable2.has(key))) throwError$1(state, "duplicated mapping key");
   const err = frame.tag.addPair(frame.value, key, value);
   if (err) throwError$1(state, err);
-  frame.overridable?.delete(key);
+  (_frame$overridable3 = frame.overridable) === null || _frame$overridable3 === void 0 || _frame$overridable3.delete(key);
 }
 function addValue(state, value, tag) {
   const frame = state.frames[state.frames.length - 1];
@@ -17810,9 +15308,7 @@ function storeAnchor(state, event, value, tag, isValueFinal) {
 * @category Events
 */
 function constructFromEvents(events, options) {
-  const state = {
-    ...DEFAULT_CONSTRUCTOR_OPTIONS,
-    ...options,
+  const state = _objectSpread2(_objectSpread2(_objectSpread2({}, DEFAULT_CONSTRUCTOR_OPTIONS), options), {}, {
     events,
     documents: [],
     eventIndex: 0,
@@ -17823,7 +15319,7 @@ function constructFromEvents(events, options) {
     tagHandlers: Object.create(null),
     totalMergeKeys: 0,
     aliasCount: 0
-  };
+  });
   while (state.eventIndex < state.events.length) {
     const event = state.events[state.eventIndex++];
     state.position = eventPosition$1(event);
@@ -18581,9 +16077,10 @@ function parseNode(state, parentIndent, nodeContext, allowToSeek, allowCompact, 
     const propertyState = snapshotState(state);
     if (atNewLine && indentStatus !== 1 && (ch === 33 || ch === 38)) break;
     if (atNewLine && allowBlockStyles && (props.tagStart !== NO_RANGE$1 || props.anchorStart !== NO_RANGE$1) && (ch === 33 || ch === 38)) {
+      var _state$events$fallbac;
       const fallbackState = snapshotState(state);
       const flowIndent = parentIndent + 1;
-      if (readBlockMapping(state, state.position - state.lineStart, flowIndent, props) && state.events[fallbackState.eventsLength]?.type === EVENT_ID.MAPPING) {
+      if (readBlockMapping(state, state.position - state.lineStart, flowIndent, props) && ((_state$events$fallbac = state.events[fallbackState.eventsLength]) === null || _state$events$fallbac === void 0 ? void 0 : _state$events$fallbac.type) === EVENT_ID.MAPPING) {
         state.depth--;
         return true;
       }
@@ -18606,10 +16103,11 @@ function parseNode(state, parentIndent, nodeContext, allowToSeek, allowCompact, 
       if (allowBlockCollections && (readBlockSequence(state, blockIndent, props) || readBlockMapping(state, blockIndent, flowIndent, props)) || readFlowCollection(state, flowIndent, props)) hasContent = true;else {
         const ch = state.input.charCodeAt(state.position);
         if (propertyStart !== null && allowPropertyMapping && allowBlockStyles && !allowBlockCollections && ch !== 124 && ch !== 62) {
+          var _state$events$fallbac2;
           const fallbackState = snapshotState(state);
           const propertyIndent = propertyStart.position - propertyStart.lineStart;
           restoreState(state, propertyStart);
-          if (readBlockMapping(state, propertyIndent, flowIndent, emptyProperties()) && state.events[fallbackState.eventsLength]?.type === EVENT_ID.MAPPING) hasContent = true;else restoreState(state, fallbackState);
+          if (readBlockMapping(state, propertyIndent, flowIndent, emptyProperties()) && ((_state$events$fallbac2 = state.events[fallbackState.eventsLength]) === null || _state$events$fallbac2 === void 0 ? void 0 : _state$events$fallbac2.type) === EVENT_ID.MAPPING) hasContent = true;else restoreState(state, fallbackState);
         }
         if (!hasContent && (allowBlockScalars && readBlockScalar(state, flowIndent, props) || readSingleQuotedScalar(state, flowIndent, props) || readDoubleQuotedScalar(state, flowIndent, props) || readAlias(state, props) || readPlainScalar(state, flowIndent, nodeContext, props))) hasContent = true;
       }
@@ -18702,7 +16200,7 @@ function readDocument(state) {
     }
   }
   const documentEvent = state.events[documentEventIndex];
-  if (documentEvent?.type === EVENT_ID.DOCUMENT) documentEvent.explicitEnd = explicitEnd;
+  if ((documentEvent === null || documentEvent === void 0 ? void 0 : documentEvent.type) === EVENT_ID.DOCUMENT) documentEvent.explicitEnd = explicitEnd;
   addPopEvent(state);
   if (!explicitEnd && state.position < state.length && !testDocumentBoundary(state)) throwError(state, "end of the stream or a document separator is expected");
 }
@@ -18713,9 +16211,7 @@ function readDocument(state) {
 */
 function parseEvents(input, options) {
   const length = input.length;
-  const state = {
-    ...DEFAULT_PARSER_OPTIONS,
-    ...options,
+  const state = _objectSpread2(_objectSpread2(_objectSpread2({}, DEFAULT_PARSER_OPTIONS), options), {}, {
     input: `${input}\0`,
     length,
     position: 0,
@@ -18727,7 +16223,7 @@ function parseEvents(input, options) {
     directives: [],
     tagHandlers: Object.create(null),
     events: []
-  };
+  });
   const nullpos = input.indexOf("\0");
   if (nullpos !== -1) YAMLException.throwAt(input, nullpos, "null byte is not allowed in input", state.filename);
   while (state.position < state.length) {
@@ -18743,22 +16239,15 @@ function parseEvents(input, options) {
 }
 //#endregion
 //#region src/load.ts
-var DEFAULT_LOAD_OPTIONS = {
-  ...DEFAULT_PARSER_OPTIONS,
-  ...DEFAULT_CONSTRUCTOR_OPTIONS
-};
+var DEFAULT_LOAD_OPTIONS = _objectSpread2(_objectSpread2({}, DEFAULT_PARSER_OPTIONS), DEFAULT_CONSTRUCTOR_OPTIONS);
 function loadDocuments(input, options = {}) {
-  const opts = {
-    ...DEFAULT_LOAD_OPTIONS,
-    ...options
-  };
+  const opts = _objectSpread2(_objectSpread2({}, DEFAULT_LOAD_OPTIONS), options);
   const source = String(input);
   const PARSER_OPT_KEYS = Object.keys(DEFAULT_PARSER_OPTIONS);
   const CONSTRUCTOR_OPT_KEYS = Object.keys(DEFAULT_CONSTRUCTOR_OPTIONS);
-  return constructFromEvents(parseEvents(source, pick(opts, PARSER_OPT_KEYS)), {
-    ...pick(opts, CONSTRUCTOR_OPT_KEYS),
+  return constructFromEvents(parseEvents(source, pick(opts, PARSER_OPT_KEYS)), _objectSpread2(_objectSpread2({}, pick(opts, CONSTRUCTOR_OPT_KEYS)), {}, {
     source
-  });
+  }));
 }
 function loadAll(input, iteratorOrOptions, options) {
   let iterator = null;
@@ -18917,10 +16406,11 @@ function build(state, object) {
 * @category AST
 */
 function jsToAst(input, schema, options = {}) {
+  var _options$noRefs, _options$skipInvalid;
   const root = build({
     representTypes: buildRepresentTypes(schema),
-    noRefs: options.noRefs ?? false,
-    skipInvalid: options.skipInvalid ?? false,
+    noRefs: (_options$noRefs = options.noRefs) !== null && _options$noRefs !== void 0 ? _options$noRefs : false,
+    skipInvalid: (_options$skipInvalid = options.skipInvalid) !== null && _options$skipInvalid !== void 0 ? _options$skipInvalid : false,
     refs: /* @__PURE__ */new Map(),
     refCounter: 0
   }, input);
@@ -18936,13 +16426,13 @@ function jsToAst(input, schema, options = {}) {
 *
 * @category AST
 */
-var VISIT_BREAK = exports.VISIT_BREAK = Symbol("visit:break");
+var VISIT_BREAK = Symbol("visit:break");
 /**
 * Return from a visitor to skip the current node's children.
 *
 * @category AST
 */
-var VISIT_SKIP = exports.VISIT_SKIP = Symbol("visit:skip");
+var VISIT_SKIP = Symbol("visit:skip");
 function visitNode(node, visitor, ctx) {
   const control = visitor(node, ctx);
   if (control === VISIT_BREAK) return true;
@@ -19000,7 +16490,7 @@ function hasBit(mask, bit) {
 *
 * @category AST
 */
-var DEFAULT_SCALAR_STYLE_RULES = exports.DEFAULT_SCALAR_STYLE_RULES = {
+var DEFAULT_SCALAR_STYLE_RULES = {
   applyQuoteFlowKeysOption,
   doubleQuoteForInvisibles,
   doubleQuoteWhitespaceOnly,
@@ -19330,16 +16820,12 @@ function nodeTagShort(node) {
   return node.tagged ? node.tag : tagNameShort(node.tag);
 }
 function createPresenterState(options) {
-  const opts = {
-    ...DEFAULT_PRESENTER_OPTIONS,
-    ...options
-  };
+  const opts = _objectSpread2(_objectSpread2({}, DEFAULT_PRESENTER_OPTIONS), options);
   if (opts.flowSkipColonSpace) opts.quoteFlowKeys = true;
-  return {
-    ...opts,
+  return _objectSpread2(_objectSpread2({}, opts), {}, {
     defaultScalarTagName: opts.schema.defaultScalarTag.tagName,
     openEnded: false
-  };
+  });
 }
 function generateNextLine(state, level) {
   return `\n${" ".repeat(state.indent * level)}`;
@@ -19449,6 +16935,7 @@ function cannotBeCompact(state, node, level) {
   return node.tagged || node.anchor !== void 0 || state.indent < 2 && level > 0;
 }
 function writeNode(state, level, node, parent, ctx) {
+  var _ctx$compact;
   if (node.kind === "alias") {
     state.openEnded = false;
     return {
@@ -19461,7 +16948,7 @@ function writeNode(state, level, node, parent, ctx) {
     iskey = false,
     isblockseq = false
   } = ctx;
-  let compact = ctx.compact ?? false;
+  let compact = (_ctx$compact = ctx.compact) !== null && _ctx$compact !== void 0 ? _ctx$compact : false;
   const hasAnchor = node.anchor !== void 0;
   if (cannotBeCompact(state, node, level)) compact = false;
   let body;
@@ -19479,7 +16966,7 @@ function writeNode(state, level, node, parent, ctx) {
     for (const rule of state.scalarStyleRules) rule(layout);
     body = renderScalar(layout);
     state.openEnded = (layout.style === SCALAR_STYLE.LITERAL_BLOCK || layout.style === SCALAR_STYLE.FOLDED_BLOCK) && (node.value === "\n" || node.value.endsWith("\n\n"));
-    shouldPrintTag = node.tagged || body === "" && layout.flowOnly && parent?.kind === "sequence" && !hasAnchor || layout.style !== SCALAR_STYLE.PLAIN && node.tag !== state.defaultScalarTagName;
+    shouldPrintTag = node.tagged || body === "" && layout.flowOnly && (parent === null || parent === void 0 ? void 0 : parent.kind) === "sequence" && !hasAnchor || layout.style !== SCALAR_STYLE.PLAIN && node.tag !== state.defaultScalarTagName;
   }
   if ((node.kind === "mapping" || node.kind === "sequence") && !useBlockCollection) state.openEnded = false;
   if (useBlockCollection && compact && level > 0 && state.indent > 2) body = `${" ".repeat(state.indent - 2)}${body}`;
@@ -19558,15 +17045,14 @@ function present(documents, options) {
 }
 //#endregion
 //#region src/dump.ts
-var DEFAULT_DUMP_OPTIONS = {
-  ...DEFAULT_PRESENTER_OPTIONS,
+var DEFAULT_DUMP_OPTIONS = _objectSpread2(_objectSpread2({}, DEFAULT_PRESENTER_OPTIONS), {}, {
   schema: DUMP_SCHEMA,
   skipInvalid: false,
   noRefs: false,
   flowLevel: -1,
   sortKeys: false,
   transform: () => {}
-};
+});
 function defaultCompareFn(a, b) {
   const x = String(a);
   const y = String(b);
@@ -19583,10 +17069,7 @@ function defaultCompareFn(a, b) {
 * @category Main
 */
 function dump(input, options = {}) {
-  const opts = {
-    ...DEFAULT_DUMP_OPTIONS,
-    ...options
-  };
+  const opts = _objectSpread2(_objectSpread2({}, DEFAULT_DUMP_OPTIONS), options);
   const documents = jsToAst(input, opts.schema, {
     noRefs: opts.noRefs,
     skipInvalid: opts.skipInvalid
@@ -19604,10 +17087,9 @@ function dump(input, options = {}) {
     });
   }
   opts.transform(documents);
-  return present(documents, {
-    ...pick(opts, Object.keys(DEFAULT_PRESENTER_OPTIONS)),
+  return present(documents, _objectSpread2(_objectSpread2({}, pick(opts, Object.keys(DEFAULT_PRESENTER_OPTIONS))), {}, {
     schema: opts.schema
-  });
+  }));
 }
 //#endregion
 //#region src/ast/from_events.ts
@@ -19768,40 +17250,107 @@ function eventsToAst(events, options) {
 //#endregion
 //#region src/index.ts
 /** @deprecated Use `EVENT_ID.DOCUMENT` instead. @internal */
-var EVENT_DOCUMENT = exports.EVENT_DOCUMENT = EVENT_ID.DOCUMENT;
+var EVENT_DOCUMENT = EVENT_ID.DOCUMENT;
 /** @deprecated Use `EVENT_ID.SEQUENCE` instead. @internal */
-var EVENT_SEQUENCE = exports.EVENT_SEQUENCE = EVENT_ID.SEQUENCE;
+var EVENT_SEQUENCE = EVENT_ID.SEQUENCE;
 /** @deprecated Use `EVENT_ID.MAPPING` instead. @internal */
-var EVENT_MAPPING = exports.EVENT_MAPPING = EVENT_ID.MAPPING;
+var EVENT_MAPPING = EVENT_ID.MAPPING;
 /** @deprecated Use `EVENT_ID.SCALAR` instead. @internal */
-var EVENT_SCALAR = exports.EVENT_SCALAR = EVENT_ID.SCALAR;
+var EVENT_SCALAR = EVENT_ID.SCALAR;
 /** @deprecated Use `EVENT_ID.ALIAS` instead. @internal */
-var EVENT_ALIAS = exports.EVENT_ALIAS = EVENT_ID.ALIAS;
+var EVENT_ALIAS = EVENT_ID.ALIAS;
 /** @deprecated Use `EVENT_ID.POP` instead. @internal */
-var EVENT_POP = exports.EVENT_POP = EVENT_ID.POP;
+var EVENT_POP = EVENT_ID.POP;
 /** @deprecated Use `SCALAR_STYLE.PLAIN` instead. @internal */
-var SCALAR_STYLE_PLAIN = exports.SCALAR_STYLE_PLAIN = SCALAR_STYLE.PLAIN;
+var SCALAR_STYLE_PLAIN = SCALAR_STYLE.PLAIN;
 /** @deprecated Use `SCALAR_STYLE.SINGLE_QUOTED` instead. @internal */
-var SCALAR_STYLE_SINGLE_QUOTED = exports.SCALAR_STYLE_SINGLE_QUOTED = SCALAR_STYLE.SINGLE_QUOTED;
+var SCALAR_STYLE_SINGLE_QUOTED = SCALAR_STYLE.SINGLE_QUOTED;
 /** @deprecated Use `SCALAR_STYLE.DOUBLE_QUOTED` instead. @internal */
-var SCALAR_STYLE_DOUBLE_QUOTED = exports.SCALAR_STYLE_DOUBLE_QUOTED = SCALAR_STYLE.DOUBLE_QUOTED;
+var SCALAR_STYLE_DOUBLE_QUOTED = SCALAR_STYLE.DOUBLE_QUOTED;
 /** @deprecated Use `SCALAR_STYLE.LITERAL_BLOCK` instead. @internal */
-var SCALAR_STYLE_LITERAL_BLOCK = exports.SCALAR_STYLE_LITERAL_BLOCK = SCALAR_STYLE.LITERAL_BLOCK;
+var SCALAR_STYLE_LITERAL_BLOCK = SCALAR_STYLE.LITERAL_BLOCK;
 /** @deprecated Use `SCALAR_STYLE.FOLDED_BLOCK` instead. @internal */
-var SCALAR_STYLE_FOLDED_BLOCK = exports.SCALAR_STYLE_FOLDED_BLOCK = SCALAR_STYLE.FOLDED_BLOCK;
+var SCALAR_STYLE_FOLDED_BLOCK = SCALAR_STYLE.FOLDED_BLOCK;
 /** @deprecated Use `COLLECTION_STYLE.BLOCK` instead. @internal */
-var COLLECTION_STYLE_BLOCK = exports.COLLECTION_STYLE_BLOCK = COLLECTION_STYLE.BLOCK;
+var COLLECTION_STYLE_BLOCK = COLLECTION_STYLE.BLOCK;
 /** @deprecated Use `COLLECTION_STYLE.FLOW` instead. @internal */
-var COLLECTION_STYLE_FLOW = exports.COLLECTION_STYLE_FLOW = COLLECTION_STYLE.FLOW;
+var COLLECTION_STYLE_FLOW = COLLECTION_STYLE.FLOW;
 /** @deprecated Use `CHOMPING_MODE.CLIP` instead. @internal */
-var CHOMPING_CLIP = exports.CHOMPING_CLIP = CHOMPING_MODE.CLIP;
+var CHOMPING_CLIP = CHOMPING_MODE.CLIP;
 /** @deprecated Use `CHOMPING_MODE.STRIP` instead. @internal */
-var CHOMPING_STRIP = exports.CHOMPING_STRIP = CHOMPING_MODE.STRIP;
+var CHOMPING_STRIP = CHOMPING_MODE.STRIP;
 /** @deprecated Use `CHOMPING_MODE.KEEP` instead. @internal */
-var CHOMPING_KEEP = exports.CHOMPING_KEEP = CHOMPING_MODE.KEEP;
+var CHOMPING_KEEP = CHOMPING_MODE.KEEP;
 //#endregion
+exports.CHOMPING_CLIP = CHOMPING_CLIP;
+exports.CHOMPING_KEEP = CHOMPING_KEEP;
+exports.CHOMPING_MODE = CHOMPING_MODE;
+exports.CHOMPING_STRIP = CHOMPING_STRIP;
+exports.COLLECTION_STYLE = COLLECTION_STYLE;
+exports.COLLECTION_STYLE_BLOCK = COLLECTION_STYLE_BLOCK;
+exports.COLLECTION_STYLE_FLOW = COLLECTION_STYLE_FLOW;
+exports.CORE_SCHEMA = CORE_SCHEMA;
+exports.DEFAULT_SCALAR_STYLE_RULES = DEFAULT_SCALAR_STYLE_RULES;
+exports.DUMP_SCHEMA = DUMP_SCHEMA;
+exports.EVENT_ALIAS = EVENT_ALIAS;
+exports.EVENT_DOCUMENT = EVENT_DOCUMENT;
+exports.EVENT_ID = EVENT_ID;
+exports.EVENT_MAPPING = EVENT_MAPPING;
+exports.EVENT_POP = EVENT_POP;
+exports.EVENT_SCALAR = EVENT_SCALAR;
+exports.EVENT_SEQUENCE = EVENT_SEQUENCE;
+exports.FAILSAFE_SCHEMA = FAILSAFE_SCHEMA;
+exports.JSON_SCHEMA = JSON_SCHEMA;
+exports.NOT_RESOLVED = NOT_RESOLVED;
+exports.SCALAR_STYLE = SCALAR_STYLE;
+exports.SCALAR_STYLE_DOUBLE_QUOTED = SCALAR_STYLE_DOUBLE_QUOTED;
+exports.SCALAR_STYLE_FOLDED_BLOCK = SCALAR_STYLE_FOLDED_BLOCK;
+exports.SCALAR_STYLE_LITERAL_BLOCK = SCALAR_STYLE_LITERAL_BLOCK;
+exports.SCALAR_STYLE_PLAIN = SCALAR_STYLE_PLAIN;
+exports.SCALAR_STYLE_SINGLE_QUOTED = SCALAR_STYLE_SINGLE_QUOTED;
+exports.Schema = Schema;
+exports.VISIT_BREAK = VISIT_BREAK;
+exports.VISIT_SKIP = VISIT_SKIP;
+exports.YAML11_SCHEMA = YAML11_SCHEMA;
+exports.YAMLException = YAMLException;
+exports.binaryTag = binaryTag;
+exports.boolCoreTag = boolCoreTag;
+exports.boolJsonTag = boolJsonTag;
+exports.boolYaml11Tag = boolYaml11Tag;
+exports.constructFromEvents = constructFromEvents;
+exports.defineMappingTag = defineMappingTag;
+exports.defineScalarTag = defineScalarTag;
+exports.defineSequenceTag = defineSequenceTag;
+exports.dump = dump;
+exports.eventsToAst = eventsToAst;
+exports.floatCoreTag = floatCoreTag;
+exports.floatJsonTag = floatJsonTag;
+exports.floatYaml11Tag = floatYaml11Tag;
+exports.getScalarValue = getScalarValue;
+exports.intCoreTag = intCoreTag;
+exports.intJsonTag = intJsonTag;
+exports.intYaml11Tag = intYaml11Tag;
+exports.jsToAst = jsToAst;
+exports.legacyMapTag = legacyMapTag;
+exports.load = load;
+exports.loadAll = loadAll;
+exports.mapTag = mapTag;
+exports.mergeTag = mergeTag;
+exports.nullCoreTag = nullCoreTag;
+exports.nullJsonTag = nullJsonTag;
+exports.nullYaml11Tag = nullYaml11Tag;
+exports.omapTag = omapTag;
+exports.pairsTag = pairsTag;
+exports.parseEvents = parseEvents;
+exports.present = present;
+exports.realMapTag = realMapTag;
+exports.seqTag = seqTag;
+exports.setTag = setTag;
+exports.strTag = strTag;
+exports.timestampTag = timestampTag;
+exports.visit = visit;
 
-},{}],142:[function(require,module,exports){
+},{}],100:[function(require,module,exports){
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     define([], factory) /* global define */
@@ -20448,7 +17997,7 @@ var CHOMPING_KEEP = exports.CHOMPING_KEEP = CHOMPING_MODE.KEEP;
 
 }));
 
-},{}],143:[function(require,module,exports){
+},{}],101:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -20634,7 +18183,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],144:[function(require,module,exports){
+},{}],102:[function(require,module,exports){
 /* eslint-env browser */
 
 const textEncoder = new TextEncoder()
@@ -21075,4 +18624,4 @@ require("./plugin-common/index.js");
 function _interopRequireWildcard(e, t) { if ("function" == typeof WeakMap) var r = new WeakMap(), n = new WeakMap(); return (_interopRequireWildcard = function (e, t) { if (!t && e && e.__esModule) return e; var o, i, f = { __proto__: null, default: e }; if (null === e || "object" != typeof e && "function" != typeof e) return f; if (o = t ? n : r) { if (o.has(e)) return o.get(e); o.set(e, f); } for (const t in e) "default" !== t && {}.hasOwnProperty.call(e, t) && ((i = (o = Object.defineProperty) && Object.getOwnPropertyDescriptor(e, t)) && (i.get || i.set) ? o(f, t, i) : f[t] = e[t]); return f; })(e, t); }
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 const version = exports.version = _package.default.version;
-},{"../package.json":84,"./Cite/index.js":45,"./logger.js":52,"./plugin-common/index.js":53,"./plugins/index.js":64,"./util/index.js":80}]},{},[92,115,118,121,123,126,127,131]);
+},{"../package.json":42,"./Cite/index.js":3,"./logger.js":10,"./plugin-common/index.js":11,"./plugins/index.js":22,"./util/index.js":38}]},{},[50,73,76,79,81,84,85,89]);
